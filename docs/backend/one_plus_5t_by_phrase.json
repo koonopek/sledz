@@ -1,0 +1,1092 @@
+{
+    "items": {
+        "promoted": [
+            {
+                "id": "10566203872",
+                "name": "OnePlus 5T 8/128 GB czarny",
+                "seller": {
+                    "id": "50234192",
+                    "login": "eco-electro",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": true,
+                    "highlight": true
+                },
+                "delivery": {
+                    "availableForFree": true,
+                    "lowestPrice": {
+                        "amount": "0.00",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/1137a3/e9ab9e0c4538a4d8d9ad8b558a87/OnePlus-5T-8-128-GB-czarny"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11b901/836296b640a5af727c1ea4f6fe90/OnePlus-5T-8-128-GB-czarny-Wersja-systemu-operacyjnego-Android-7-1"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/1121a5/7292cee543388ebf06768a8a01fc/OnePlus-5T-8-128-GB-czarny-Kod-producenta-OnePlus5T-128-Black"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "869.00",
+                        "currency": "PLN"
+                    },
+                    "popularity": 0
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 1
+                },
+                "category": {
+                    "id": "257782"
+                }
+            },
+            {
+                "id": "10539227667",
+                "name": "P\u0141YNNE NANO SZK\u0141O OCHRONNA POW\u0141OKA SZKLANA",
+                "seller": {
+                    "id": "9323196",
+                    "login": "NELASTYL",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "6.70",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/118d9e/3a76f15d462788f2f5f828a47805/PLYNNE-NANO-SZKLO-OCHRONNA-POWLOKA-SZKLANA"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11ee6a/3bf2d82f4a9babdd33dfbea8c80b/PLYNNE-NANO-SZKLO-OCHRONNA-POWLOKA-SZKLANA-Kod-producenta-nano_plyn-uniwersalny"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11122c/562186a2476aba513710038de23e/PLYNNE-NANO-SZKLO-OCHRONNA-POWLOKA-SZKLANA-Producent-Nela-Styl"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/118279/1f51b96b4e6db9d984633f186124/PLYNNE-NANO-SZKLO-OCHRONNA-POWLOKA-SZKLANA-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/119729/7dbf61b34c3c8e3eb79adffc0aa1/PLYNNE-NANO-SZKLO-OCHRONNA-POWLOKA-SZKLANA-Rodzaj-powloka-w-plynie"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "12.90",
+                        "currency": "PLN"
+                    },
+                    "popularity": 331
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 99543
+                },
+                "category": {
+                    "id": "10532"
+                }
+            },
+            {
+                "id": "9568769105",
+                "name": "ETUI WODOODPORNE POKROWIEC NA TELEFON PLA\u017b\u0118 BASEN",
+                "seller": {
+                    "id": "9323196",
+                    "login": "NELASTYL",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "6.70",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/114d13/d7886fd34e6195a4c840bacc0a80/ETUI-WODOODPORNE-POKROWIEC-NA-TELEFON-PLAZE-BASEN"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11c183/0f6434ad418dade34e419f441cf4/ETUI-WODOODPORNE-POKROWIEC-NA-TELEFON-PLAZE-BASEN-Dedykowany-model-uniersalny"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11764a/014696ac46ce9f09c3c63e3de227/ETUI-WODOODPORNE-POKROWIEC-NA-TELEFON-PLAZE-BASEN-Kod-producenta-uni1"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11f7bd/78c0529c4b38b349a3a292bda59a/ETUI-WODOODPORNE-POKROWIEC-NA-TELEFON-PLAZE-BASEN-Producent-Nela-Styl"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11e3c4/e1909ffe4e26a4f85f25ff333494/ETUI-WODOODPORNE-POKROWIEC-NA-TELEFON-PLAZE-BASEN-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/113d5d/9135c7624d8d9fb862fff2a89e26/ETUI-WODOODPORNE-POKROWIEC-NA-TELEFON-PLAZE-BASEN-Kolor-bezbarwny"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/118245/ee97dfbf4933aceb43e7f4f8b672/ETUI-WODOODPORNE-POKROWIEC-NA-TELEFON-PLAZE-BASEN-Typ-wsuwka"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "11.90",
+                        "currency": "PLN"
+                    },
+                    "popularity": 620
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 91336
+                },
+                "category": {
+                    "id": "353"
+                }
+            },
+            {
+                "id": "8285359187",
+                "name": "Folia Hydro\u017cel do wszystkich modeli+doci\u0119cieGRATIS",
+                "seller": {
+                    "id": "58938700",
+                    "login": "apgo_eu",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "6.99",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/1141b5/da16cc2c4890b221d1e706b28031/Folia-Hydrozel-do-wszystkich-modeli-dociecieGRATIS"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/116f82/dcda99fd42a4a8fa906a5d345e15/Folia-Hydrozel-do-wszystkich-modeli-dociecieGRATIS-Kod-producenta-TPU-APGOUNIVERSAL"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/112ae4/cdac555048cba89a3cb6010f5710/Folia-Hydrozel-do-wszystkich-modeli-dociecieGRATIS-Producent-apgo-nie-peka"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/113f26/d99417184471b92c94123f3fae3d/Folia-Hydrozel-do-wszystkich-modeli-dociecieGRATIS-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11dfb0/a159225b48ea8f21cf9b1213ecd6/Folia-Hydrozel-do-wszystkich-modeli-dociecieGRATIS-Rodzaj-folia-ochronna"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "14.99",
+                        "currency": "PLN"
+                    },
+                    "popularity": 732
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 4490
+                },
+                "category": {
+                    "id": "10532"
+                }
+            },
+            {
+                "id": "10563463941",
+                "name": "P\u0141YNNE SZK\u0141O HARTOWANE FOLIA W P\u0141YNIE UNIWERSALNE",
+                "seller": {
+                    "id": "27261764",
+                    "login": "emulticom",
+                    "company": true,
+                    "superSeller": true
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "8.99",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/118910/124588d142fd99c6a87ecd0a0331/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/1147e3/5a9a9241463caad72f8073b340e0/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Kod-producenta-NANO-LIQUID-9H"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11743e/3097667c4de5ac9d943813863b44/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Producent-NANO-HI-TECH"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/118cf5/7c7b850f41368cdfb9d72101251f/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/119769/276d4e31495187204b8e012d533e/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Rodzaj-powloka-w-plynie"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11e3fb/1d7886044a59a1e1f8ec3a21ceec/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Liczba-sztuk-w-zestawie-1-szt"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11f1e3/c328417a4ed0a5ec46b7db1db9c4/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Grubosc-szkla-1-mm"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "10.79",
+                        "currency": "PLN"
+                    },
+                    "popularity": 88
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 99815
+                },
+                "category": {
+                    "id": "10532"
+                }
+            },
+            {
+                "id": "9546845040",
+                "name": "Uniwersalne etui silikonowe na ka\u017cdy telefon KOLOR",
+                "seller": {
+                    "id": "58938700",
+                    "login": "apgo_eu",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "6.99",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/11b439/2d6cd85b4cfb987942ab0a1ff8db/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/1108f3/da45c0894a7e8b1e981f82342eb5/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR-Kod-producenta-E-APGO"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11eddb/c933b26a47bfae3c7c9d9191d168/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR-Producent-apgo-nie-peka"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/1146a9/dbbfcbbc42568900c1976849949d/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11b81a/0d01ba7e47d3bbdece69896db45d/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR-Kolor-inny"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11cde6/29c3463e4fba945a11e7e9c00bcc/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR-Typ-ramka-bumper"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/118c5e/355292c64b1d919ce798ef60eb8f/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR-Material-tworzywo-sztuczne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11f872/174f8c2e418393acf53f46b0fe31/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR-Funkcje-pochlanianie-wstrzasow"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11c164/23843edb4e83b1e0b671f4e99cbf/Uniwersalne-etui-silikonowe-na-kazdy-telefon-KOLOR-Waga-produktu-z-opakowaniem-jednostkowym-0-1-kg"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11dfc3/b3ffbf2541209df2be1cc7da70e7"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11694a/6a9072784b4391cf309755d8629d"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11b0f6/43e3174247f7b92baecb0c1a4a8a"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/114994/f82bfae54b68869eb99ab7445ad4"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/111bf4/c748458441de8ff8453f5574ff28"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/113210/20e5d0904b718e0a7c7de25b4258"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "14.99",
+                        "currency": "PLN"
+                    },
+                    "popularity": 59
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 574
+                },
+                "category": {
+                    "id": "353"
+                }
+            },
+            {
+                "id": "8285173293",
+                "name": "Szk\u0142o Hybryda do wszystkich modeli +doci\u0119cieGRATIS",
+                "seller": {
+                    "id": "58938700",
+                    "login": "apgo_eu",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "6.99",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/1114a5/aaa746d548c0bf9e092b29ab3f18/Szklo-Hybryda-do-wszystkich-modeli-dociecieGRATIS"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/03e1f9/788e10b948ada13773576551bbec/Szklo-Hybryda-do-wszystkich-modeli-dociecieGRATIS-Kod-producenta-PRO-APGOUNIVERSAL"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11622e/6c1bd7af414b8b97f493498126ea/Szklo-Hybryda-do-wszystkich-modeli-dociecieGRATIS-Producent-apgo-nie-peka"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/1116e8/3ad0cac34dc0afff17a77384392c/Szklo-Hybryda-do-wszystkich-modeli-dociecieGRATIS-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/119a06/5c2e4dbf41ccb3b4007b4f9920cc/Szklo-Hybryda-do-wszystkich-modeli-dociecieGRATIS-Rodzaj-szklo-hybrydowe"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "14.99",
+                        "currency": "PLN"
+                    },
+                    "popularity": 338
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 8167
+                },
+                "category": {
+                    "id": "10532"
+                }
+            },
+            {
+                "id": "10165538290",
+                "name": "P\u0141YNNE SZK\u0141O HARTOWANE FOLIA W P\u0141YNIE UNIWERSALNE",
+                "seller": {
+                    "id": "92579187",
+                    "login": "Avren_PL",
+                    "company": true,
+                    "superSeller": true
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "6.49",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/11fd58/f1538e0f43858330f1ef8ce38ab4/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11311f/e78ca72a4507a4385f1d8b96f727/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Kod-producenta-NANO-CRISTAL-H9"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/119cfa/5d19775149f8a5edc2d4a529fa2f/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Producent-inny"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11f4ff/e876bd9e4333bc4d40117deb9a94/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/118580/73f52fdf4e74a334692d8f3879d8/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Rodzaj-powloka-w-plynie"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/117add/31b6685a4a0bb71f206d00ac68df/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Liczba-sztuk-w-zestawie-1-szt"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11ea1a/a0d277164d63938e4954282a37b1/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Konstrukcja-powloka-oleofobowa-zaokraglone-krawedzie-zaokraglone-rogi"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/1169d0/4d31e74f45a09f7a5b0f0c98f6aa/PLYNNE-SZKLO-HARTOWANE-FOLIA-W-PLYNIE-UNIWERSALNE-Zestaw-do-aplikacji-tak"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/116f61/b07a3f9d4612be13c4b5f2403d00"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/110ee5/9d47ba7c4658b3d1c74142a9ab54"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11cd16/931d5d8f42fe87d8772da8b1b739"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11ab82/8a0890794cc5957f16f8c2003d8b"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "19.99",
+                        "currency": "PLN"
+                    },
+                    "popularity": 297
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 271
+                },
+                "category": {
+                    "id": "10532"
+                }
+            },
+            {
+                "id": "9844725446",
+                "name": "Spigen Nano Liquid Folia/Szybka/Szk\u0142o w p\u0142ynie 9H",
+                "seller": {
+                    "id": "74358451",
+                    "login": "www_vocase_pl",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "4.99",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/117904/3e6bdabe412a86f3efb859750654/Spigen-Nano-Liquid-Folia-Szybka-Szklo-w-plynie-9H"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/115c94/6ea5314c4746a2311d4248d95b9c/Spigen-Nano-Liquid-Folia-Szybka-Szklo-w-plynie-9H-Kod-producenta-000GL21813"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11f224/0a9d626d43889657d924c2fe4d43/Spigen-Nano-Liquid-Folia-Szybka-Szklo-w-plynie-9H-Producent-Spigen"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/115c6e/12339e0d4c9aba8a1b87579bfd76/Spigen-Nano-Liquid-Folia-Szybka-Szklo-w-plynie-9H-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11dc12/8e17f2e543589d92216866b502be/Spigen-Nano-Liquid-Folia-Szybka-Szklo-w-plynie-9H-Rodzaj-powloka-w-plynie"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "43.00",
+                        "currency": "PLN"
+                    },
+                    "popularity": 46
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 99412
+                },
+                "category": {
+                    "id": "10532"
+                }
+            },
+            {
+                "id": "10192380263",
+                "name": "9H SZK\u0141O W P\u0141YNIE NANO / FOLIA LIQUID 1,5ml",
+                "seller": {
+                    "id": "47429351",
+                    "login": "gsm-hurt_pl",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": true,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "4.40",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/11204d/cd8422cc4890af6b3266f7462b25/9H-SZKLO-W-PLYNIE-NANO-FOLIA-LIQUID-1-5ml"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11b75b/3200567146eeb767efa426a176e2/9H-SZKLO-W-PLYNIE-NANO-FOLIA-LIQUID-1-5ml-Kod-producenta-0000046803"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11729c/002cab8743f692856ef63f527697/9H-SZKLO-W-PLYNIE-NANO-FOLIA-LIQUID-1-5ml-Producent-Inny"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11104e/23db95364668b812b1f88ec6bd7b/9H-SZKLO-W-PLYNIE-NANO-FOLIA-LIQUID-1-5ml-Przeznaczenie-uniwersalne"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11933f/0a8374524e76b79afcd498fa5577/9H-SZKLO-W-PLYNIE-NANO-FOLIA-LIQUID-1-5ml-Rodzaj-powloka-w-plynie"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/119af4/1eec1c344b9eab0b377cb0b68afa/9H-SZKLO-W-PLYNIE-NANO-FOLIA-LIQUID-1-5ml-Liczba-sztuk-w-zestawie-1-szt"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/118f1b/b15d4f2646e093b524a254f94b22/9H-SZKLO-W-PLYNIE-NANO-FOLIA-LIQUID-1-5ml-Konstrukcja-powloka-oleofobowa-zaokraglone-krawedzie-zaokraglone-rogi"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/1199d2/94e973f04e9c9216dea7072d76de/9H-SZKLO-W-PLYNIE-NANO-FOLIA-LIQUID-1-5ml-Zestaw-do-aplikacji-tak"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11edf4/9ebfefad4f36899ecbfad8ce5125"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/112dbe/b4aa1fb34b5a8a7a8436a6153cbc"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/114f7f/621e52754059904c766730260d6c"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/111c8c/ca9dad2745f7968edd49f7210c6e"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "20.00",
+                        "currency": "PLN"
+                    },
+                    "popularity": 68
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 834
+                },
+                "category": {
+                    "id": "10532"
+                }
+            }
+        ],
+        "regular": []
+    },
+    "searchMeta": {
+        "availableCount": 5985,
+        "totalCount": 5985,
+        "fallback": false
+    },
+    "categories": {
+        "subcategories": [
+            {
+                "id": "4",
+                "name": "Telefony i Akcesoria",
+                "count": 5551
+            },
+            {
+                "id": "3",
+                "name": "Motoryzacja",
+                "count": 379
+            },
+            {
+                "id": "8845",
+                "name": "Fotografia",
+                "count": 29
+            },
+            {
+                "id": "10",
+                "name": "RTV i AGD",
+                "count": 21
+            },
+            {
+                "id": "3919",
+                "name": "Sport i turystyka",
+                "count": 3
+            },
+            {
+                "id": "2",
+                "name": "Komputery",
+                "count": 2
+            }
+        ],
+        "path": [
+            {
+                "id": "954b95b6-43cf-4104-8354-dea4d9b10ddf",
+                "name": "Allegro"
+            }
+        ]
+    },
+    "filters": [
+        {
+            "id": "parameter.11323",
+            "type": "MULTI",
+            "name": "Stan",
+            "values": [
+                {
+                    "value": "11323_1",
+                    "name": "nowe",
+                    "count": 5943,
+                    "selected": false
+                },
+                {
+                    "value": "11323_2",
+                    "name": "u\u017cywane",
+                    "count": 30,
+                    "selected": false
+                },
+                {
+                    "value": "11323_238058",
+                    "name": "powystawowe",
+                    "count": 12,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246466",
+                    "name": "bie\u017cnikowane",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_238070",
+                    "name": "niepe\u0142ny komplet",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246510",
+                    "name": "nowe bez metki",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246514",
+                    "name": "nowe z defektem",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_238066",
+                    "name": "po zwrocie",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246462",
+                    "name": "regenerowane",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_238062",
+                    "name": "uszkodzone",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246534",
+                    "name": "odnowione przez producenta",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246538",
+                    "name": "odnowione przez sprzedawc\u0119",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_253798",
+                    "name": "do renowacji",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_253802",
+                    "name": "po renowacji",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_253806",
+                    "name": "niewymagaja\u0328ce renowacji",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_852680",
+                    "name": "Z demonta\u017cu (demo)",
+                    "count": 0,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "sellingMode.format",
+            "type": "MULTI",
+            "name": "Rodzaj oferty",
+            "values": [
+                {
+                    "value": "BUY_NOW",
+                    "name": "kup teraz",
+                    "count": 5981,
+                    "selected": false
+                },
+                {
+                    "value": "AUCTION",
+                    "name": "licytacje",
+                    "count": 4,
+                    "selected": false
+                },
+                {
+                    "value": "ADVERTISEMENT",
+                    "name": "og\u0142oszenia",
+                    "count": 0,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "price",
+            "type": "NUMERIC",
+            "name": "Cena",
+            "values": [
+                {
+                    "idSuffix": ".from",
+                    "name": "od",
+                    "selected": false
+                },
+                {
+                    "idSuffix": ".to",
+                    "name": "do",
+                    "selected": false
+                }
+            ],
+            "minValue": 0,
+            "maxValue": 1000000000,
+            "unit": "z\u0142"
+        },
+        {
+            "id": "deliveryMethod",
+            "type": "MULTI",
+            "name": "Sposoby dostawy",
+            "values": [
+                {
+                    "value": "5b445fa0580ce26bb2f99602",
+                    "name": "Kurier",
+                    "count": 5962,
+                    "selected": false
+                },
+                {
+                    "value": "5b445fe6580ce26bb2f9960a",
+                    "name": "Paczkomaty InPost",
+                    "count": 5839,
+                    "selected": false
+                },
+                {
+                    "value": "5b44606c580ce26bb2f99617",
+                    "name": "Dostawa za granic\u0119",
+                    "count": 759,
+                    "selected": false
+                },
+                {
+                    "value": "5b446004580ce26bb2f9960c",
+                    "name": "Odbi\u00f3r w punkcie",
+                    "count": 5345,
+                    "selected": false
+                },
+                {
+                    "value": "5b446013580ce26bb2f9960e",
+                    "name": "List",
+                    "count": 4744,
+                    "selected": false
+                },
+                {
+                    "value": "5b446031580ce26bb2f99610",
+                    "name": "Paczka",
+                    "count": 220,
+                    "selected": false
+                },
+                {
+                    "value": "5b446044580ce26bb2f99612",
+                    "name": "Odbi\u00f3r osobisty",
+                    "count": 826,
+                    "selected": false
+                },
+                {
+                    "value": "5b44605c580ce26bb2f99614",
+                    "name": "Przesy\u0142ka elektroniczna",
+                    "count": 0,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "location.city",
+            "type": "TEXT",
+            "name": "Miejscowo\u015b\u0107",
+            "values": [
+                {
+                    "name": "Miejscowo\u015b\u0107",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "location.province",
+            "type": "SINGLE",
+            "name": "Wojew\u00f3dztwo",
+            "values": [
+                {
+                    "value": "DOLNOSLASKIE",
+                    "name": "z dolno\u015bl\u0105skiego",
+                    "selected": false
+                },
+                {
+                    "value": "KUJAWSKO_POMORSKIE",
+                    "name": "z kujawsko-pomorskiego",
+                    "selected": false
+                },
+                {
+                    "value": "LUBELSKIE",
+                    "name": "z lubelskiego",
+                    "selected": false
+                },
+                {
+                    "value": "LUBUSKIE",
+                    "name": "z lubuskiego",
+                    "selected": false
+                },
+                {
+                    "value": "LODZKIE",
+                    "name": "z \u0142\u00f3dzkiego",
+                    "selected": false
+                },
+                {
+                    "value": "MALOPOLSKIE",
+                    "name": "z ma\u0142opolskiego",
+                    "selected": false
+                },
+                {
+                    "value": "MAZOWIECKIE",
+                    "name": "z mazowieckiego",
+                    "selected": false
+                },
+                {
+                    "value": "OPOLSKIE",
+                    "name": "z opolskiego",
+                    "selected": false
+                },
+                {
+                    "value": "PODKARPACKIE",
+                    "name": "z podkarpackiego",
+                    "selected": false
+                },
+                {
+                    "value": "PODLASKIE",
+                    "name": "z podlaskiego",
+                    "selected": false
+                },
+                {
+                    "value": "POMORSKIE",
+                    "name": "z pomorskiego",
+                    "selected": false
+                },
+                {
+                    "value": "SLASKIE",
+                    "name": "ze \u015bl\u0105skiego",
+                    "selected": false
+                },
+                {
+                    "value": "SWIETOKRZYSKIE",
+                    "name": "ze \u015bwi\u0119tokrzyskiego",
+                    "selected": false
+                },
+                {
+                    "value": "WARMINSKO_MAZURSKIE",
+                    "name": "z warmi\u0144sko-mazurskiego",
+                    "selected": false
+                },
+                {
+                    "value": "WIELKOPOLSKIE",
+                    "name": "z wielkopolskiego",
+                    "selected": false
+                },
+                {
+                    "value": "ZACHODNIOPOMORSKIE",
+                    "name": "z zachodniopomorskiego",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "option",
+            "type": "MULTI",
+            "name": "oferta ma",
+            "values": [
+                {
+                    "value": "FREE_SHIPPING",
+                    "name": "darmowa dostawa",
+                    "selected": false
+                },
+                {
+                    "value": "FREE_RETURN",
+                    "name": "darmowy zwrot",
+                    "selected": false
+                },
+                {
+                    "value": "VAT_INVOICE",
+                    "name": "faktura VAT",
+                    "selected": false
+                },
+                {
+                    "value": "COINS",
+                    "name": "Monety Allegro",
+                    "selected": false
+                },
+                {
+                    "value": "BRAND_ZONE",
+                    "name": "Strefa Marek",
+                    "selected": false
+                },
+                {
+                    "value": "SUPERSELLER",
+                    "name": "Super Sprzedawca",
+                    "selected": false
+                },
+                {
+                    "value": "CHARITY",
+                    "name": "Allegro Charytatywni",
+                    "selected": false
+                },
+                {
+                    "value": "SMART",
+                    "name": "Allegro Smart!",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "campaign",
+            "type": "MULTI",
+            "name": "kampania",
+            "values": [
+                {
+                    "value": "INSTALLMENTS_ZERO",
+                    "name": "raty zero",
+                    "selected": false
+                },
+                {
+                    "value": "BARGAIN",
+                    "name": "Strefa okazji",
+                    "selected": false
+                },
+                {
+                    "value": "SUBSIDY",
+                    "name": "Super Cena",
+                    "selected": false
+                }
+            ]
+        }
+    ],
+    "sort": [
+        {
+            "value": "-relevance",
+            "name": "trafno\u015b\u0107",
+            "order": "najwi\u0119ksza",
+            "selected": true
+        },
+        {
+            "value": "+price",
+            "name": "cena",
+            "order": "od najni\u017cszej",
+            "selected": false
+        },
+        {
+            "value": "-price",
+            "name": "cena",
+            "order": "od najwy\u017cszej",
+            "selected": false
+        },
+        {
+            "value": "+withDeliveryPrice",
+            "name": "cena z dostaw\u0105",
+            "order": "od najni\u017cszej",
+            "selected": false
+        },
+        {
+            "value": "-withDeliveryPrice",
+            "name": "cena z dostaw\u0105",
+            "order": "od najwy\u017cszej",
+            "selected": false
+        },
+        {
+            "value": "-popularity",
+            "name": "popularno\u015b\u0107",
+            "order": "najwi\u0119ksza",
+            "selected": false
+        },
+        {
+            "value": "+endTime",
+            "name": "czas do ko\u0144ca",
+            "order": "najmniej",
+            "selected": false
+        },
+        {
+            "value": "-startTime",
+            "name": "czas dodania",
+            "order": "najnowsze",
+            "selected": false
+        }
+    ]
+}
