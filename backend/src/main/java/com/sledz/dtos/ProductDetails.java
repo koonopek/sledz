@@ -1,4 +1,4 @@
-package com.sledz.ProductProvider;
+package com.sledz.dtos;
 
 
 public class ProductDetails {

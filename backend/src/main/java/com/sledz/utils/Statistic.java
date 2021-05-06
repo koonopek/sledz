@@ -1,4 +1,4 @@
-package com.sledz.Utils;
+package com.sledz.utils;
 
 import java.util.List;
 
