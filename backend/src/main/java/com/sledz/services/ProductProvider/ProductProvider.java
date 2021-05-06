@@ -1,6 +1,8 @@
-package com.sledz.ProductProvider;
+package com.sledz.services.ProductProvider;
 
-public interface InternalProductProvider {
+import com.sledz.dtos.ProductDetails;
+
+public interface ProductProvider {
     public ProductDetails getProductDetails(int productId);
 
     public void addSubscription(int userId, int productId);

@@ -1,4 +1,4 @@
-package com.sledz.ProductProvider;
+package com.sledz.services.ProductProvider;
 
 import java.util.List;
 

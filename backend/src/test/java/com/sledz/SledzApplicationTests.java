@@ -1,4 +1,4 @@
-package com.sledz.sledz;
+package com.sledz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
