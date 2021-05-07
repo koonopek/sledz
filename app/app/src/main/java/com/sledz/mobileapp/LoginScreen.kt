@@ -9,7 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
@@ -77,18 +77,19 @@ private fun Spacing(value: Dp) {
 
 @Composable
 private fun PasswordInput() {
-    val textState = remember {
+    var textState by remember {
         mutableStateOf("")
     }
 
     OutlinedTextField(
-        value = textState.value,
-        onValueChange = { newString ->
-            textState.value = newString
+        value = textState,
+        onValueChange = {
+            textState = it
         },
         label = {
             Text(text = "Password")
         },
+        singleLine = true,
         keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Password
         ),
@@ -100,18 +101,19 @@ private fun PasswordInput() {
 
 @Composable
 private fun EmailInput() {
-    val textState = remember {
+    var textState by remember {
         mutableStateOf("")
     }
 
     OutlinedTextField(
-        value = textState.value,
-        onValueChange = { newString ->
-            textState.value = newString
+        value = textState,
+        onValueChange = {
+            textState = it
         },
         label = {
             Text(text = "Email address")
         },
+        singleLine = true,
         keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Email
         ),
