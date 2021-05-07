@@ -1,4 +1,4 @@
-package com.sledz.mobileapp
+package com.sledz.mobileapp.views.login
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
@@ -18,10 +18,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.sledz.mobileapp.views.SledzSecondaryButton
 import com.sledz.mobileapp.ui.theme.MobileAppTheme
+import com.sledz.mobileapp.views.SledzEmailInput
+import com.sledz.mobileapp.views.SledzPasswordInput
+import com.sledz.mobileapp.views.Spacing
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    navController: NavController
+) {
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier
@@ -35,24 +43,25 @@ fun LoginScreen() {
         ) {
             LoginHeader()
 
-            EmailInput()
+            SledzEmailInput()
 
             Spacing(value = 8.dp)
 
-            PasswordInput()
+            SledzPasswordInput()
 
             TermsOfServiceLabel()
 
-            LoginButton()
-
+            LoginButton(navController)
         }
     }
 }
 
 @Composable
-private fun LoginButton() {
+private fun LoginButton(navController: NavController) {
     SledzSecondaryButton(
         buttonText = "Log in",
+        navController,
+        "main"
     )
 }
 
@@ -67,58 +76,6 @@ private fun TermsOfServiceLabel() {
                 top = 24.dp,
                 bottom = 16.dp
             )
-    )
-}
-
-@Composable
-private fun Spacing(value: Dp) {
-    Spacer(modifier = Modifier.height(value))
-}
-
-@Composable
-private fun PasswordInput() {
-    var textState by remember {
-        mutableStateOf("")
-    }
-
-    OutlinedTextField(
-        value = textState,
-        onValueChange = {
-            textState = it
-        },
-        label = {
-            Text(text = "Password")
-        },
-        singleLine = true,
-        keyboardOptions = KeyboardOptions.Default.copy(
-            keyboardType = KeyboardType.Password
-        ),
-        visualTransformation = PasswordVisualTransformation(),
-        modifier = Modifier
-            .fillMaxWidth()
-    )
-}
-
-@Composable
-private fun EmailInput() {
-    var textState by remember {
-        mutableStateOf("")
-    }
-
-    OutlinedTextField(
-        value = textState,
-        onValueChange = {
-            textState = it
-        },
-        label = {
-            Text(text = "Email address")
-        },
-        singleLine = true,
-        keyboardOptions = KeyboardOptions.Default.copy(
-            keyboardType = KeyboardType.Email
-        ),
-        modifier = Modifier
-            .fillMaxWidth()
     )
 }
 
@@ -146,6 +103,6 @@ fun LoginHeader() {
 @Composable
 private fun LoginScreenPreview() {
     MobileAppTheme {
-        LoginScreen()
+        LoginScreen(rememberNavController())
     }
 }
