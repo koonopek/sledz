@@ -90,7 +90,7 @@ private fun TermsOfServiceLabel() {
     uiMode = Configuration.UI_MODE_NIGHT_NO,
 )
 @Composable
-private fun LoginScreenPreview() {
+private fun RegisterScreenPreview() {
     MobileAppTheme {
         RegisterScreen(rememberNavController())
     }
