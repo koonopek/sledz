@@ -17,6 +17,13 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Zwraca użytkownika idenfytfikującego się daną nazwą
+     * 
+     * @param String name
+     * 
+     * @return UserDetails
+     */
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         List<User> users = userRepository.findByName(name);

@@ -18,11 +18,17 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 import static com.sledz.security.SecurityConstants.*;
 
+/**
+ * Filter spradzający czy dany użytkownik autoryzuje się poprawnym tokenem
+ */
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     public JWTAuthorizationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
     }
 
+    /**
+     * Metoda sprawdza czy dane zapytanie posiada header służacy do autoryzacji
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest req,
                                     HttpServletResponse res,
@@ -40,6 +46,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         chain.doFilter(req, res);
     }
 
+    /**
+     * Metoda werfyikująca poprawność token'a znajdującego się w headerze autoryzującym
+     */
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(HEADER_STRING);
 
