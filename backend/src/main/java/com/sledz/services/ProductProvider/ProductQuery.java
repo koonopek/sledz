@@ -1,9 +1,14 @@
 package com.sledz.services.ProductProvider;
 
-import java.util.Optional;
+import lombok.Builder;
 
+/**
+ * Ta kla
+ */
+@Builder
 public class ProductQuery { 
-    Optional<String> searchCategoryId;
-    Optional<String> searchPhrase;
-    Optional<Integer> productId;
+    String categoryId;
+    String phrase;
+    Integer productId;
+    Integer querySize;
  }
