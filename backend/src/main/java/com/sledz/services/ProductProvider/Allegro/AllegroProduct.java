@@ -1,28 +1,78 @@
 package com.sledz.services.ProductProvider.Allegro;
 
 import com.sledz.services.ProductProvider.ExternalProduct;
-import org.json.JSONObject;
 
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
+import com.google.gson.*;
+
+/**
+ * Realizacja ExternalProduct dla Allegro
+ */
 public class AllegroProduct implements ExternalProduct {
-    private JSONObject _json;
-    private static final HashMap<String,Object> VOID_MAP = new HashMap<>();
-    AllegroProduct(JSONObject json)
+    private JsonObject _json;
+    private static final String[] priceKeys = { "sellingMode", "price", "amount"};
+    private static final String[] categoryIdKeys = { "category", "id"};
+    private static final String[] nameKeys = {"name"};
+    AllegroProduct(JsonObject json)
     {
         _json = json;
     }
 
     @Override
     public BigDecimal getPrice() {
-
-        j = getObject(_json.optJSONObject("sellingMode"),"price")
+        BigDecimal ret = null;
+        try {
+            ret = _json.getAsJsonObject(priceKeys[0])
+                    .getAsJsonObject(priceKeys[1])
+                    .getAsJsonPrimitive(priceKeys[2])
+                    .getAsBigDecimal();
+        }catch (Exception e) {
+            ret = null;
+        }
+        return ret;
     }
 
-    private static JSONObject getObject(JSONObject json,String key){
-        return json != null ? json.optJSONObject(key) : null;
+    @Override
+    public String getName() {
+        String ret = null;
+        try {
+            ret = _json.getAsJsonPrimitive(nameKeys[0])
+                .getAsString();
+        }catch (Exception e) {
+            ret = null;
+        }
+        return ret;
+    }
+
+    @Override
+    public Integer getCategoryId() {
+        Integer ret = null;
+        try {
+            ret = _json.getAsJsonObject(categoryIdKeys[0])
+                    .getAsJsonPrimitive(categoryIdKeys[1])
+                    .getAsInt();
+        }catch (Exception e) {
+            ret = null;
+        }
+        return ret;
+    }
+
+    @Override
+    public String getImageUrl() {
+        String ret = null;
+        try {
+            ret = _json.getAsJsonArray("images")
+                    .get(0)
+                    .getAsString();
+        }
+        catch (Exception e) {
+            ret = null;
+        }
+        return ret;
     }
 }

@@ -3,12 +3,13 @@ package com.sledz.services.ProductProvider;
 import lombok.Builder;
 
 /**
- * Ta kla
+ * Ta klasa służy do podawania parametrów do wyszukiwania produktów
+ * Jak używać: https://projectlombok.org/features/Builder
  */
 @Builder
 public class ProductQuery { 
-    String categoryId;
-    String phrase;
-    Integer productId;
-    Integer querySize;
+    public String categoryId;
+    public String phrase;
+    public Integer productId;
+    public Integer querySize;
  }
