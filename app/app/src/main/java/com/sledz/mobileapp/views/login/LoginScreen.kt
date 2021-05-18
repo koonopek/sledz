@@ -16,19 +16,16 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.sledz.mobileapp.views.SledzSecondaryButton
 import com.sledz.mobileapp.ui.theme.MobileAppTheme
-import com.sledz.mobileapp.views.SledzEmailInput
-import com.sledz.mobileapp.views.SledzPasswordInput
 import com.sledz.mobileapp.views.Spacing
 
 @Composable
 fun LoginScreen(
-    navController: NavController
+    navController: NavController,
 ) {
     Surface(
         color = MaterialTheme.colors.background,
@@ -43,11 +40,11 @@ fun LoginScreen(
         ) {
             LoginHeader()
 
-            SledzEmailInput()
+            EmailInput()
 
             Spacing(value = 8.dp)
 
-            SledzPasswordInput()
+            PasswordInput()
 
             TermsOfServiceLabel()
 
@@ -76,6 +73,53 @@ private fun TermsOfServiceLabel() {
                 top = 24.dp,
                 bottom = 16.dp
             )
+    )
+}
+
+@Composable
+fun PasswordInput() {
+    var textState by remember {
+        mutableStateOf("")
+    }
+
+    OutlinedTextField(
+        value = textState,
+        onValueChange = {
+            textState = it
+        },
+        label = {
+            Text(text = "Password")
+        },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions.Default.copy(
+            keyboardType = KeyboardType.Password
+        ),
+        visualTransformation = PasswordVisualTransformation(),
+        modifier = Modifier
+            .fillMaxWidth()
+    )
+}
+
+@Composable
+fun EmailInput() {
+    var textState by remember {
+        mutableStateOf("")
+    }
+
+    OutlinedTextField(
+        value = textState,
+        onValueChange = {
+            textState = it
+        },
+        label = {
+            Text(text = "Email address")
+        },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions.Default.copy(
+            keyboardType = KeyboardType.Email
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
     )
 }
 
