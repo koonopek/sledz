@@ -1,4 +1,6 @@
-package com.sledz.mobileapp
+package com.sledz.mobileapp.data.models
+
+import com.sledz.mobileapp.R
 
 data class Product (
     val imageRes: Int,
