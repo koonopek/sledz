@@ -13,7 +13,9 @@ import com.sledz.mobileapp.views.login.LoginScreen
 import com.sledz.mobileapp.views.login.LoginViewModel
 import com.sledz.mobileapp.views.main.MainScreen
 import com.sledz.mobileapp.views.register.RegisterScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
