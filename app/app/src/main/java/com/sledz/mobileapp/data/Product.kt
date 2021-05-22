@@ -1,12 +1,10 @@
-package com.sledz.mobileapp.data.models
+package com.sledz.mobileapp.data
 
 import com.sledz.mobileapp.R
 
 data class Product (
     val imageRes: Int,
-    val title: String,
-    val category:String="None",
-    val currentPrice:Float=0.0f
+    val title: String
 )
 
 val defaultListOfProducts = listOf(
