@@ -13,7 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.sledz.mobileapp.defaultListOfProducts
+import com.sledz.mobileapp.data.defaultListOfProducts
 import com.sledz.mobileapp.ui.theme.ProductListItem
 import com.sledz.mobileapp.views.Spacing
 
