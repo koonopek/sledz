@@ -13,6 +13,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -102,14 +103,16 @@ fun CategoryDropdown() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(18.dp)
-            .background(color = MaterialTheme.colors.primary,shape = RoundedCornerShape(25.dp))
+            .height(30.dp)
+            .background(color = MaterialTheme.colors.primary, shape = RoundedCornerShape(10.dp))
+            .clickable(onClick = { expanded = true })
     ) {
         Text(
             items[selectedIndex],
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(onClick = { expanded = true })
+                .align(Alignment.CenterStart)
+                .padding(start = 16.dp)
         )
         DropdownMenu(
             expanded = expanded,

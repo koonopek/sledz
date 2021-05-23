@@ -3,10 +3,7 @@ package com.sledz.mobileapp.views.login
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
@@ -18,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltNavGraphViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.sledz.mobileapp.data.models.AuthToken
@@ -31,7 +29,7 @@ fun LoginScreen(
     navController: NavController,
     viewModel: LoginViewModel = hiltNavGraphViewModel()
 ) {
-    
+
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier
@@ -55,6 +53,10 @@ fun LoginScreen(
             TermsOfServiceLabel()
 
             LoginButton(navController)
+
+//            Button(onClick = { viewModel.userLogin() }) {
+//                Text("AAAAAAA")
+//            }
         }
     }
 }
@@ -66,6 +68,7 @@ private fun LoginButton(navController: NavController) {
         navController,
         "main"
     )
+
 }
 
 @Composable

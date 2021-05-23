@@ -5,23 +5,23 @@ import retrofit2.http.*
 
 interface MainApi {
     @POST("user/login")
-    fun loginUser(@Body user: User): AuthToken
+    suspend fun loginUser(@Body user: User): AuthToken
 
     @POST("user/register")
-    fun registerUser(@Body user: User): Boolean
+    suspend fun registerUser(@Body user: User): Boolean
 
     @GET("products/search")
-    fun searchProducts(@Body search: Search): List<Product>
+    suspend fun searchProducts(@Body search: Search): List<Product>
 
     @POST("products/subscribe/{productId}")
-    fun subscribeProduct(@Path("productId") id:Long, @Body user:User): Product
+    suspend fun subscribeProduct(@Path("productId") id:Long, @Body user:User): Product
 
     @GET("products/subscribed")
-    fun getSubscribed(@Body user:User): List<Product>
+    suspend fun getSubscribed(@Body user:User): List<Product>
 
     @GET("products/get/{productID}")
-    fun getProductHistory(@Path("productId") id:Long): ProductDetails
+    suspend fun getProductHistory(@Path("productId") id:Long): ProductDetails
 
     @DELETE("products/unsubscribe/{productId}")
-    fun unsubscribeProduct(@Path("productId") id:Long, @Body user:User): Product
+    suspend fun unsubscribeProduct(@Path("productId") id:Long, @Body user:User): Product
 }

@@ -11,16 +11,17 @@ import javax.inject.Inject
 class MainRepository @Inject constructor(
     private val mainApi: MainApi
 ) {
-    fun loginUser(user: User): Resource<AuthToken> {
+    suspend fun loginUser(user: User): Resource<AuthToken> {
         val response = try {
+            Log.println(Log.DEBUG, "******", mainApi.loginUser(user).token)
             mainApi.loginUser(user)
         } catch (e: Exception) {
-            return Resource.Error("Login Error")
+            return Resource.Error(e.toString())
         }
         return Resource.Success(response)
     }
 
-    fun registerUser(user: User): Resource<Boolean> {
+    suspend fun registerUser(user: User): Resource<Boolean> {
         val response = try {
             mainApi.registerUser(user)
         } catch (e: Exception) {
@@ -29,7 +30,7 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-    fun searchProducts(search: Search): Resource<List<Product>> {
+    suspend fun searchProducts(search: Search): Resource<List<Product>> {
         val response = try {
             mainApi.searchProducts(search)
         } catch (e: Exception) {
@@ -38,7 +39,7 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-    fun subscribeProduct(id: Long, user: User): Resource<Product> {
+    suspend fun subscribeProduct(id: Long, user: User): Resource<Product> {
         val response = try {
             mainApi.subscribeProduct(id, user)
         } catch (e: Exception) {
@@ -47,7 +48,7 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-    fun getSubscribed(user: User): Resource<List<Product>> {
+    suspend fun getSubscribed(user: User): Resource<List<Product>> {
         val response = try {
             mainApi.getSubscribed(user)
         } catch(e: Exception) {
@@ -56,7 +57,7 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-    fun getProductHistory(id: Long): Resource<ProductDetails> {
+    suspend fun getProductHistory(id: Long): Resource<ProductDetails> {
         val response = try {
             mainApi.getProductHistory(id)
         } catch(e: Exception) {
@@ -65,7 +66,7 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-    fun unsubscribeProduct(id: Long, user: User): Resource<Product> {
+    suspend fun unsubscribeProduct(id: Long, user: User): Resource<Product> {
         val response = try {
             mainApi.unsubscribeProduct(id, user)
         } catch(e: Exception) {

@@ -1,17 +1,15 @@
 package com.sledz.mobileapp.views.login
 
 import android.util.Log
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sledz.mobileapp.data.models.AuthToken
+import androidx.lifecycle.viewModelScope
 import com.sledz.mobileapp.data.models.User
 import com.sledz.mobileapp.repository.MainRepository
-import com.sledz.mobileapp.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,5 +30,12 @@ class LoginViewModel @Inject constructor(
 
     fun onPasswordChange(newString: String) {
         _password.value = newString
+    }
+
+    fun userLogin() {
+        viewModelScope.launch(Dispatchers.Default) {
+            val results = repository.loginUser(User("sample1", "password1"))
+            Log.println(Log.DEBUG, "***", results.data!!.token)
+        }
     }
 }
