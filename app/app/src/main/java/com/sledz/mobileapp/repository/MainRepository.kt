@@ -1,167 +1,77 @@
-package com.sledz.mobileapp.data
+package com.sledz.mobileapp.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.sledz.mobileapp.data.models.Product
-import com.sledz.mobileapp.data.models.ProductDetails
-import com.sledz.mobileapp.data.models.Search
-import com.sledz.mobileapp.data.models.User
+import android.util.Log
+import com.sledz.mobileapp.data.models.*
 import com.sledz.mobileapp.data.remote.MainApi
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.sledz.mobileapp.util.Resource
+import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Inject
 
-
+@ActivityScoped
 class MainRepository @Inject constructor(
     private val mainApi: MainApi
-){
-
-    fun loginUser(user: User): LiveData<Boolean> {
-        val data = MutableLiveData<Boolean>()
-
-        mainApi.loginUser(user).enqueue( object: Callback<Boolean> {
-
-            override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
-                val resBody = response.body()
-                if(response.code() == 200 && resBody != null) {
-                    data.value = resBody
-                }
-            }
-
-            override fun onFailure(call: Call<Boolean>, t: Throwable) {
-                data.value = null
-
-            }
-
-        })
-
-        return data
+) {
+    fun loginUser(user: User): Resource<AuthToken> {
+        val response = try {
+            mainApi.loginUser(user)
+        } catch (e: Exception) {
+            return Resource.Error("Login Error")
+        }
+        return Resource.Success(response)
     }
 
-    fun registerUser(user:User): LiveData<Boolean> {
-        val data = MutableLiveData<Boolean>()
-
-        mainApi.registerUser(user).enqueue(object: Callback<Boolean> {
-            override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
-                val resBody = response.body()
-                if(response.code() == 201 && resBody != null) {
-                    data.value = resBody
-                }
-            }
-
-            override fun onFailure(call: Call<Boolean>, t: Throwable) {
-                data.value = null
-            }
-
-        })
-
-        return data
+    fun registerUser(user: User): Resource<Boolean> {
+        val response = try {
+            mainApi.registerUser(user)
+        } catch (e: Exception) {
+            return Resource.Error("Register Error")
+        }
+        return Resource.Success(response)
     }
 
-    fun searchProducts(search: Search): LiveData<List<Product>> {
-        val data = MutableLiveData<List<Product>>()
-
-        mainApi.searchProducts(search).enqueue(object: Callback<List<Product>> {
-
-            override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
-                val resBody = response.body()
-                if(response.code() == 200 && resBody != null) {
-                    data.value = resBody
-                }
-            }
-
-            override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                data.value = null
-            }
-
-        })
-
-        return data
+    fun searchProducts(search: Search): Resource<List<Product>> {
+        val response = try {
+            mainApi.searchProducts(search)
+        } catch (e: Exception) {
+            return Resource.Error("Search Error")
+        }
+        return Resource.Success(response)
     }
 
-    fun subscribeProduct(id:Long, user:User): LiveData<Product> {
-        val data = MutableLiveData<Product>()
-
-        mainApi.subscribeProduct(id, user).enqueue(object: Callback<Product> {
-
-            override fun onResponse(call: Call<Product>, response: Response<Product>) {
-                val resBody = response.body()
-                if(response.code() == 200 && resBody != null) {
-                    data.value = resBody
-                }
-            }
-
-            override fun onFailure(call: Call<Product>, t: Throwable) {
-                data.value = null
-            }
-
-        })
-
-        return data
+    fun subscribeProduct(id: Long, user: User): Resource<Product> {
+        val response = try {
+            mainApi.subscribeProduct(id, user)
+        } catch (e: Exception) {
+            return Resource.Error("Search Error")
+        }
+        return Resource.Success(response)
     }
 
-    fun getSubscribed(user:User): LiveData<List<Product>> {
-        val data = MutableLiveData<List<Product>>()
-
-        mainApi.getSubscribed(user).enqueue(object: Callback<List<Product>> {
-
-            override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
-                val resBody = response.body()
-                if(response.code() == 200 && resBody != null) {
-                    data.value = resBody
-                }
-            }
-
-            override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                data.value = null
-            }
-
-        })
-
-        return data
+    fun getSubscribed(user: User): Resource<List<Product>> {
+        val response = try {
+            mainApi.getSubscribed(user)
+        } catch(e: Exception) {
+            return Resource.Error("Search Error")
+        }
+        return Resource.Success(response)
     }
 
-    fun getProductHistory(id:Long): LiveData<ProductDetails> {
-        val data = MutableLiveData<ProductDetails>()
-
-        mainApi.getProductHistory(id).enqueue(object: Callback<ProductDetails> {
-
-            override fun onResponse(call: Call<ProductDetails>, response: Response<ProductDetails>) {
-                val resBody = response.body()
-                if(response.code() == 200 && resBody != null) {
-                    data.value = resBody
-                }
-            }
-
-            override fun onFailure(call: Call<ProductDetails>, t: Throwable) {
-                data.value = null
-            }
-
-        })
-
-        return data
+    fun getProductHistory(id: Long): Resource<ProductDetails> {
+        val response = try {
+            mainApi.getProductHistory(id)
+        } catch(e: Exception) {
+            return Resource.Error("Search Error")
+        }
+        return Resource.Success(response)
     }
 
-    fun unsubscribeProduct(id:Long, user:User): LiveData<Product> {
-        val data = MutableLiveData<Product>()
-
-        mainApi.unsubscribeProduct(id, user).enqueue(object: Callback<Product> {
-
-            override fun onResponse(call: Call<Product>, response: Response<Product>) {
-                val resBody = response.body()
-                if(response.code() == 200 && resBody != null) {
-                    data.value = resBody
-                }
-            }
-
-            override fun onFailure(call: Call<Product>, t: Throwable) {
-                data.value = null
-            }
-
-        })
-
-        return data
+    fun unsubscribeProduct(id: Long, user: User): Resource<Product> {
+        val response = try {
+            mainApi.unsubscribeProduct(id, user)
+        } catch(e: Exception) {
+            return Resource.Error("Search Error")
+        }
+        return Resource.Success(response)
     }
 
 }

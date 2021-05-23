@@ -1,7 +1,7 @@
 package com.sledz.mobileapp.di
 
-import com.sledz.mobileapp.data.MainRepository
 import com.sledz.mobileapp.data.remote.MainApi
+import com.sledz.mobileapp.repository.MainRepository
 import com.sledz.mobileapp.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides

@@ -17,16 +17,21 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltNavGraphViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.sledz.mobileapp.data.models.AuthToken
 import com.sledz.mobileapp.views.SledzSecondaryButton
 import com.sledz.mobileapp.ui.theme.MobileAppTheme
+import com.sledz.mobileapp.util.Resource
 import com.sledz.mobileapp.views.Spacing
 
 @Composable
 fun LoginScreen(
     navController: NavController,
+    viewModel: LoginViewModel = hiltNavGraphViewModel()
 ) {
+    
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier
@@ -38,6 +43,7 @@ fun LoginScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
         ) {
+
             LoginHeader()
 
             EmailInput()

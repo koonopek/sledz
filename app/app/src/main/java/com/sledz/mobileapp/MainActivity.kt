@@ -4,9 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.sledz.mobileapp.data.remote.MainApi
+import com.sledz.mobileapp.repository.MainRepository
 import com.sledz.mobileapp.ui.theme.MobileAppTheme
 import com.sledz.mobileapp.views.WelcomeScreen
 import com.sledz.mobileapp.views.login.LoginScreen
@@ -20,6 +23,8 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContent {
             MobileAppTheme {
                 val navController = rememberNavController()
