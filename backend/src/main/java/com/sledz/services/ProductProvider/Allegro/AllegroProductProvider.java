@@ -8,6 +8,7 @@ import com.sledz.services.ProductProvider.ExternalProductProviderAuthenticator;
 import com.sledz.services.ProductProvider.ProductQuery;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -31,26 +32,7 @@ public class AllegroProductProvider implements ExternalProductProvider {
     @Override
     public List<ExternalProduct> searchProducts(ProductQuery query) {
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Bearer " + _authenticator.getToken());
-        headers.add("Accept", "application/vnd.allegro.public.v1");
-        headers.add("Accept", "application/json");
-
-
-
-        HttpEntity<String> req = new HttpEntity<>(headers);
-        Map<String,String> args = parseQuery(query);
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> result = restTemplate.exchange(_baseUrl+_productEndpoint, HttpMethod.GET,req,String.class,args);
-
-        if(result.getStatusCode() != HttpStatus.OK)
-        {
-            return new LinkedList<>();
-        }
-
-
-        JsonObject response = JsonParser.parseString(result.getBody()).getAsJsonObject();
-
+        var response = makeReq(parseQuery(query), HttpMethod.GET);
         JsonArray products = response.getAsJsonObject("items").getAsJsonArray("promoted");
         List<ExternalProduct> ret = new LinkedList<>();
         for(JsonElement elem : products)
@@ -66,15 +48,31 @@ public class AllegroProductProvider implements ExternalProductProvider {
      * @param query standard product query object
      * @return request parameter map
      */
-    private Map<String,String> parseQuery(ProductQuery query)
+    private String parseQuery(ProductQuery query)
     {
-        Map<String,String> args = new HashMap<>();
+        var builder = UriComponentsBuilder.fromHttpUrl(_baseUrl+_productEndpoint);
         if(query.categoryId != null) {
-            args.put("category.id", query.categoryId);
+            builder.queryParam("category.id", query.categoryId);
         }
-        args.put("phrase", query.phrase != null ? query.phrase : "No phrase" );
-        args.put("limit", query.querySize != null ? query.querySize.toString() : "1");
+        builder.queryParam("phrase", query.phrase != null ? query.phrase : "No phrase" );
+        builder.queryParam("limit", query.querySize != null ? query.querySize.toString() : "10");
 
-        return args;
+        return builder.toUriString();
+    }
+    private JsonObject makeReq(String url, HttpMethod method)
+    {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + _authenticator.getToken());
+        headers.add("Accept", "application/vnd.allegro.public.v1+json");
+        HttpEntity<String> req = new HttpEntity<>(headers);
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> result = restTemplate.exchange(url, method,req,String.class);
+
+        if(result.getStatusCode() != HttpStatus.OK)
+        {
+            return JsonNull.INSTANCE.getAsJsonObject();
+        }
+        return JsonParser.parseString(result.getBody()).getAsJsonObject();
     }
 }
