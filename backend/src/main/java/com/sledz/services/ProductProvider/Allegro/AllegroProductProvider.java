@@ -33,7 +33,8 @@ public class AllegroProductProvider implements ExternalProductProvider {
     public List<ExternalProduct> searchProducts(ProductQuery query) {
 
         var response = makeReq(parseQuery(query), HttpMethod.GET);
-        JsonArray products = response.getAsJsonObject("items").getAsJsonArray("promoted");
+        System.out.println(response.toString());
+        JsonArray products = response.getAsJsonObject("items").getAsJsonArray("regular");
         List<ExternalProduct> ret = new LinkedList<>();
         for(JsonElement elem : products)
         {
