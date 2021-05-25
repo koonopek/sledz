@@ -8,20 +8,23 @@ interface MainApi {
     suspend fun loginUser(@Body user: User): AuthToken
 
     @POST("user/register")
-    suspend fun registerUser(@Body user: User): Boolean
+    suspend fun registerUser(@Body user: User): RegisterResponse
 
-    @GET("products/search")
+    @GET("product/search")
     suspend fun searchProducts(@Body search: Search): List<Product>
 
-    @POST("products/subscribe/{productId}")
-    suspend fun subscribeProduct(@Path("productId") id:Long, @Body user:User): Product
+    @POST("product/subscribe/{productId}")
+    suspend fun subscribeProduct(@Path("productId") id:Long, @Body token:AuthToken): Product
 
-    @GET("products/subscribed")
-    suspend fun getSubscribed(@Body user:User): List<Product>
+    @GET("product/subscribed")
+    suspend fun getSubscribed(@Body token:AuthToken): List<Product>
 
-    @GET("products/get/{productID}")
+    @GET("product/{productID}")
     suspend fun getProductHistory(@Path("productId") id:Long): ProductDetails
 
-    @DELETE("products/unsubscribe/{productId}")
-    suspend fun unsubscribeProduct(@Path("productId") id:Long, @Body user:User): Product
+    @GET("categories")
+    suspend fun getCategories(): CategoryList
+
+    @DELETE("product/unsubscribe/{productId}")
+    suspend fun unsubscribeProduct(@Path("productId") id:Long, @Body token:AuthToken): Product
 }
