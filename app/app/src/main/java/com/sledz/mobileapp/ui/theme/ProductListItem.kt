@@ -15,8 +15,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.sledz.mobileapp.data.Product
-import com.sledz.mobileapp.data.defaultListOfProducts
+import com.sledz.mobileapp.data.models.Product
+import com.sledz.mobileapp.data.models.defaultListOfProducts
 
 @Composable
 fun ProductListItem(

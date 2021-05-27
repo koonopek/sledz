@@ -1,22 +1,28 @@
-package com.sledz.mobileapp.views.main
+package com.sledz.mobileapp.views.search
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sledz.mobileapp.data.models.defaultListOfProducts
 import com.sledz.mobileapp.ui.theme.ProductListItem
+import com.sledz.mobileapp.views.Spacing
 
 @Composable
-fun MainScreen() {
-
+fun SearchScreen(){
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier
@@ -27,21 +33,27 @@ fun MainScreen() {
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
         ) {
-            SearchInput()
+//            SearchInput()
 
-            ObservedSection()
+            Spacing(value = 8.dp)
+
+            CategoryDropdown()
+
+            Spacing(value = 8.dp)
+
+//            FoundSection()
         }
     }
 }
 
 @Composable
-private fun ObservedSection() {
+fun FoundSection() {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         item {
             Text(
-                text = "Obserwowane produkty",
+                text = "Znalezione produkty",
                 style = MaterialTheme.typography.h4
             )
         }
@@ -50,6 +62,7 @@ private fun ObservedSection() {
         }
     }
 }
+
 
 @Composable
 private fun SearchInput() {
@@ -79,6 +92,44 @@ private fun SearchInput() {
     )
 }
 
+@Composable
+fun CategoryDropdown() {
+    var expanded by remember {
+        mutableStateOf(false)
+    }
+    val items = listOf("A", "B", "C", "D", "E", "F")
+    var selectedIndex by remember { mutableStateOf(0) }
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(30.dp)
+            .background(color = MaterialTheme.colors.primary, shape = RoundedCornerShape(10.dp))
+            .clickable(onClick = { expanded = true })
+    ) {
+        Text(
+            items[selectedIndex],
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.CenterStart)
+                .padding(start = 16.dp)
+        )
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            items.forEachIndexed { index, element ->
+                DropdownMenuItem(onClick = {
+                    selectedIndex = index
+                    expanded = false
+                }) {
+                    Text(text = element)
+                }
+            }
+        }
+    }
+}
 
 @Preview(
     name = "Night Mode",
@@ -90,5 +141,5 @@ private fun SearchInput() {
 )
 @Composable
 private fun MainScreenPreview() {
-    MainScreen()
+    SearchScreen()
 }
