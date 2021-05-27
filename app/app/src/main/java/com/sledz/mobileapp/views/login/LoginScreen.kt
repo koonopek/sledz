@@ -1,12 +1,13 @@
 package com.sledz.mobileapp.views.login
 
 import android.content.res.Configuration
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
@@ -15,11 +16,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltNavGraphViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.sledz.mobileapp.data.models.AuthToken
-import com.sledz.mobileapp.views.SledzSecondaryButton
 import com.sledz.mobileapp.ui.theme.MobileAppTheme
 import com.sledz.mobileapp.util.Resource
 import com.sledz.mobileapp.views.Spacing
@@ -27,8 +27,23 @@ import com.sledz.mobileapp.views.Spacing
 @Composable
 fun LoginScreen(
     navController: NavController,
-    viewModel: LoginViewModel = hiltNavGraphViewModel()
+    viewModel: LoginViewModel = hiltViewModel()
 ) {
+
+    val userLogin by viewModel.loginResponse.observeAsState(Resource.Loading<AuthToken>())
+    when (userLogin) {
+        is Resource.Success<AuthToken> -> {
+            navController.navigate("main") {
+                popUpTo("welcome") { inclusive = true }
+            }
+        }
+        is Resource.Error<AuthToken> -> {
+            Log.i("LOGIN", userLogin.message.toString())
+        }
+        else -> {
+        }
+    }
+
 
     Surface(
         color = MaterialTheme.colors.background,
@@ -44,31 +59,36 @@ fun LoginScreen(
 
             LoginHeader()
 
-            EmailInput()
+            EmailInput(viewModel)
 
             Spacing(value = 8.dp)
 
-            PasswordInput()
+            PasswordInput(viewModel)
 
             TermsOfServiceLabel()
 
-            LoginButton(navController)
-
-//            Button(onClick = { viewModel.userLogin() }) {
-//                Text("AAAAAAA")
-//            }
+            LoginButton(viewModel)
         }
     }
 }
 
 @Composable
-private fun LoginButton(navController: NavController) {
-    SledzSecondaryButton(
-        buttonText = "Log in",
-        navController,
-        "main"
-    )
-
+private fun LoginButton(viewModel: LoginViewModel) {
+    Button(
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = MaterialTheme.colors.secondary
+        ),
+        shape = MaterialTheme.shapes.medium,
+        onClick = {
+            viewModel.userLogin()
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(48.dp)
+            .padding(horizontal = 16.dp)
+    ) {
+        Text(text = "Log in")
+    }
 }
 
 @Composable
@@ -86,15 +106,13 @@ private fun TermsOfServiceLabel() {
 }
 
 @Composable
-fun PasswordInput() {
-    var textState by remember {
-        mutableStateOf("")
-    }
+fun PasswordInput(viewModel: LoginViewModel) {
+    val password: String by viewModel.password.observeAsState("")
 
     OutlinedTextField(
-        value = textState,
+        value = password,
         onValueChange = {
-            textState = it
+            viewModel.onPasswordChange(it)
         },
         label = {
             Text(text = "Password")
@@ -110,15 +128,13 @@ fun PasswordInput() {
 }
 
 @Composable
-fun EmailInput() {
-    var textState by remember {
-        mutableStateOf("")
-    }
+fun EmailInput(viewModel: LoginViewModel) {
+    val login: String by viewModel.name.observeAsState("")
 
     OutlinedTextField(
-        value = textState,
+        value = login,
         onValueChange = {
-            textState = it
+            viewModel.onLoginChange(it)
         },
         label = {
             Text(text = "Email address")

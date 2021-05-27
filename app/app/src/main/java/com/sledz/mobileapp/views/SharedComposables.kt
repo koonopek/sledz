@@ -1,6 +1,5 @@
 package com.sledz.mobileapp.views
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -10,9 +9,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 
 
 @Composable
@@ -42,7 +39,7 @@ fun SledzPrimaryButton(
 fun SledzSecondaryButton(
     buttonText: String,
     navController: NavController,
-    path: String
+    path: String,
 ) {
     Button(
         colors = ButtonDefaults.buttonColors(

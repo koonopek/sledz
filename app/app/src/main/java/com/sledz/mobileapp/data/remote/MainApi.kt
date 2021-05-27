@@ -7,6 +7,7 @@ interface MainApi {
     @POST("user/login")
     suspend fun loginUser(@Body user: User): AuthToken
 
+    @FormUrlEncoded
     @POST("user/register")
     suspend fun registerUser(@Body user: User): Boolean
 
