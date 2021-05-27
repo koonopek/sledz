@@ -1,0 +1,604 @@
+{
+    "items": {
+        "promoted": [],
+        "regular": [
+            {
+                "id": "10463015602",
+                "name": "Hybrid Armor Case etui do Samsung Galaxy 20 Plus",
+                "seller": {
+                    "id": "12474621",
+                    "login": "electronic-king",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": false,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "6.99",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/11a35b/b70303b74cec817e04b5699596ae/Hybrid-Armor-Case-etui-do-Samsung-Galaxy-20-Plus"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11db7a/45f92ab0474590cdb02e3ae341fa/Hybrid-Armor-Case-etui-do-Samsung-Galaxy-20-Plus-Producent-Nowy-Hurtel"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/118e1d/cf7967b44a0e86bdb6119c6344f0/Hybrid-Armor-Case-etui-do-Samsung-Galaxy-20-Plus-Kod-producenta-9111201894311"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/113e5e/c2ade7cf4a3c9dae49b4bca6e46e/Hybrid-Armor-Case-etui-do-Samsung-Galaxy-20-Plus-Dedykowany-model-Galaxy-S20"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/115d0b/57583d42463cbcb958a2f14e4eb5/Hybrid-Armor-Case-etui-do-Samsung-Galaxy-20-Plus-Producent-Hurtel"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/11c34f/2bdf5d3a4781953e79de7736949f/Hybrid-Armor-Case-etui-do-Samsung-Galaxy-20-Plus-Przeznaczenie-OnePlus"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "9.99",
+                        "currency": "PLN"
+                    },
+                    "popularity": 0
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 11
+                },
+                "category": {
+                    "id": "353"
+                }
+            },
+            {
+                "id": "10724774070",
+                "name": "Gra PS4 \"Moto GP 20\" Plus Lombard",
+                "seller": {
+                    "id": "95936489",
+                    "login": "lomb_boleslawiec",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": false,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "16.00",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/1151e7/e600253240f89c684cf9b661bab7/Gra-PS4-Moto-GP-20-Plus-Lombard"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/118480/5701fede46f98fdf5f85732c244b/Gra-PS4-Moto-GP-20-Plus-Lombard-Wersja-gry-pudelkowa"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/117f10/238ebf5c45f283eacbda4d9804bf/Gra-PS4-Moto-GP-20-Plus-Lombard-Wersja-jezykowa-Angielska"
+                    },
+                    {
+                        "url": "https://a.allegroimg.com/original/1167b8/b4ec5e8f447194e760553bd53cf5/Gra-PS4-Moto-GP-20-Plus-Lombard-Tytul-MOTO-GP-20"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "199.00",
+                        "currency": "PLN"
+                    },
+                    "popularity": 0
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 1
+                },
+                "category": {
+                    "id": "147128"
+                }
+            },
+            {
+                "id": "10243934682",
+                "name": "X-one UV PRO Galaxy s20+/plus FULL glue",
+                "seller": {
+                    "id": "45572432",
+                    "login": "tel4uKrakow2",
+                    "company": true,
+                    "superSeller": false
+                },
+                "promotion": {
+                    "emphasized": false,
+                    "bold": false,
+                    "highlight": false
+                },
+                "delivery": {
+                    "availableForFree": false,
+                    "lowestPrice": {
+                        "amount": "15.00",
+                        "currency": "PLN"
+                    }
+                },
+                "images": [
+                    {
+                        "url": "https://a.allegroimg.com/original/1101ae/65f4824245dcba5267e168df036a/X-one-UV-PRO-Galaxy-s20-plus-FULL-glue"
+                    }
+                ],
+                "sellingMode": {
+                    "format": "BUY_NOW",
+                    "price": {
+                        "amount": "48.00",
+                        "currency": "PLN"
+                    },
+                    "popularity": 0
+                },
+                "stock": {
+                    "unit": "UNIT",
+                    "available": 8
+                },
+                "category": {
+                    "id": "10532"
+                }
+            }
+        ]
+    },
+    "searchMeta": {
+        "availableCount": 3,
+        "totalCount": 3,
+        "fallback": false
+    },
+    "categories": {
+        "subcategories": [
+            {
+                "id": "4",
+                "name": "Telefony i Akcesoria",
+                "count": 2
+            },
+            {
+                "id": "9",
+                "name": "Gry",
+                "count": 1
+            }
+        ],
+        "path": [
+            {
+                "id": "954b95b6-43cf-4104-8354-dea4d9b10ddf",
+                "name": "Allegro"
+            }
+        ]
+    },
+    "filters": [
+        {
+            "id": "parameter.11323",
+            "type": "MULTI",
+            "name": "Stan",
+            "values": [
+                {
+                    "value": "11323_1",
+                    "name": "nowe",
+                    "count": 2,
+                    "selected": false
+                },
+                {
+                    "value": "11323_2",
+                    "name": "używane",
+                    "count": 1,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246466",
+                    "name": "bieżnikowane",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_238070",
+                    "name": "niepełny komplet",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246510",
+                    "name": "nowe bez metki",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246514",
+                    "name": "nowe z defektem",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_238066",
+                    "name": "po zwrocie",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_238058",
+                    "name": "powystawowe",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246462",
+                    "name": "regenerowane",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_238062",
+                    "name": "uszkodzone",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246534",
+                    "name": "odnowione przez producenta",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_246538",
+                    "name": "odnowione przez sprzedawcę",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_253798",
+                    "name": "do renowacji",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_253802",
+                    "name": "po renowacji",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_253806",
+                    "name": "niewymagaja?ce renowacji",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "11323_852680",
+                    "name": "Z demontażu (demo)",
+                    "count": 0,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "sellingMode.format",
+            "type": "MULTI",
+            "name": "Rodzaj oferty",
+            "values": [
+                {
+                    "value": "BUY_NOW",
+                    "name": "kup teraz",
+                    "count": 3,
+                    "selected": false
+                },
+                {
+                    "value": "AUCTION",
+                    "name": "licytacje",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "ADVERTISEMENT",
+                    "name": "ogłoszenia",
+                    "count": 0,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "price",
+            "type": "NUMERIC",
+            "name": "Cena",
+            "values": [
+                {
+                    "idSuffix": ".from",
+                    "name": "od",
+                    "selected": false
+                },
+                {
+                    "idSuffix": ".to",
+                    "name": "do",
+                    "selected": false
+                }
+            ],
+            "minValue": 0,
+            "maxValue": 1000000000,
+            "unit": "zł"
+        },
+        {
+            "id": "deliveryMethod",
+            "type": "MULTI",
+            "name": "Sposoby dostawy",
+            "values": [
+                {
+                    "value": "5b445fa0580ce26bb2f99602",
+                    "name": "Kurier",
+                    "count": 3,
+                    "selected": false
+                },
+                {
+                    "value": "5b445fe6580ce26bb2f9960a",
+                    "name": "Paczkomaty InPost",
+                    "count": 1,
+                    "selected": false
+                },
+                {
+                    "value": "5b446004580ce26bb2f9960c",
+                    "name": "Odbiór w punkcie",
+                    "count": 1,
+                    "selected": false
+                },
+                {
+                    "value": "5b446013580ce26bb2f9960e",
+                    "name": "List",
+                    "count": 1,
+                    "selected": false
+                },
+                {
+                    "value": "5b446044580ce26bb2f99612",
+                    "name": "Odbiór osobisty",
+                    "count": 1,
+                    "selected": false
+                },
+                {
+                    "value": "5b44606c580ce26bb2f99617",
+                    "name": "Dostawa za granicę",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "5b446031580ce26bb2f99610",
+                    "name": "Paczka",
+                    "count": 0,
+                    "selected": false
+                },
+                {
+                    "value": "5b44605c580ce26bb2f99614",
+                    "name": "Przesyłka elektroniczna",
+                    "count": 0,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "location.city",
+            "type": "TEXT",
+            "name": "Miejscowość",
+            "values": [
+                {
+                    "name": "Miejscowość",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "location.province",
+            "type": "SINGLE",
+            "name": "Województwo",
+            "values": [
+                {
+                    "value": "DOLNOSLASKIE",
+                    "name": "z dolnośląskiego",
+                    "selected": false
+                },
+                {
+                    "value": "KUJAWSKO_POMORSKIE",
+                    "name": "z kujawsko-pomorskiego",
+                    "selected": false
+                },
+                {
+                    "value": "LUBELSKIE",
+                    "name": "z lubelskiego",
+                    "selected": false
+                },
+                {
+                    "value": "LUBUSKIE",
+                    "name": "z lubuskiego",
+                    "selected": false
+                },
+                {
+                    "value": "LODZKIE",
+                    "name": "z łódzkiego",
+                    "selected": false
+                },
+                {
+                    "value": "MALOPOLSKIE",
+                    "name": "z małopolskiego",
+                    "selected": false
+                },
+                {
+                    "value": "MAZOWIECKIE",
+                    "name": "z mazowieckiego",
+                    "selected": false
+                },
+                {
+                    "value": "OPOLSKIE",
+                    "name": "z opolskiego",
+                    "selected": false
+                },
+                {
+                    "value": "PODKARPACKIE",
+                    "name": "z podkarpackiego",
+                    "selected": false
+                },
+                {
+                    "value": "PODLASKIE",
+                    "name": "z podlaskiego",
+                    "selected": false
+                },
+                {
+                    "value": "POMORSKIE",
+                    "name": "z pomorskiego",
+                    "selected": false
+                },
+                {
+                    "value": "SLASKIE",
+                    "name": "ze śląskiego",
+                    "selected": false
+                },
+                {
+                    "value": "SWIETOKRZYSKIE",
+                    "name": "ze świętokrzyskiego",
+                    "selected": false
+                },
+                {
+                    "value": "WARMINSKO_MAZURSKIE",
+                    "name": "z warmińsko-mazurskiego",
+                    "selected": false
+                },
+                {
+                    "value": "WIELKOPOLSKIE",
+                    "name": "z wielkopolskiego",
+                    "selected": false
+                },
+                {
+                    "value": "ZACHODNIOPOMORSKIE",
+                    "name": "z zachodniopomorskiego",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "option",
+            "type": "MULTI",
+            "name": "oferta ma",
+            "values": [
+                {
+                    "value": "FREE_SHIPPING",
+                    "name": "darmowa dostawa",
+                    "selected": false
+                },
+                {
+                    "value": "FREE_RETURN",
+                    "name": "darmowy zwrot",
+                    "selected": false
+                },
+                {
+                    "value": "VAT_INVOICE",
+                    "name": "faktura VAT",
+                    "selected": false
+                },
+                {
+                    "value": "COINS",
+                    "name": "Monety Allegro",
+                    "selected": false
+                },
+                {
+                    "value": "BRAND_ZONE",
+                    "name": "Strefa Marek",
+                    "selected": false
+                },
+                {
+                    "value": "SUPERSELLER",
+                    "name": "Super Sprzedawca",
+                    "selected": false
+                },
+                {
+                    "value": "CHARITY",
+                    "name": "Allegro Charytatywni",
+                    "selected": false
+                },
+                {
+                    "value": "SMART",
+                    "name": "Allegro Smart!",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "campaign",
+            "type": "MULTI",
+            "name": "kampania",
+            "values": [
+                {
+                    "value": "INSTALLMENTS_ZERO",
+                    "name": "raty zero",
+                    "selected": false
+                },
+                {
+                    "value": "BARGAIN",
+                    "name": "Strefa okazji",
+                    "selected": false
+                },
+                {
+                    "value": "SUBSIDY",
+                    "name": "Super Cena",
+                    "selected": false
+                }
+            ]
+        }
+    ],
+    "sort": [
+        {
+            "value": "-relevance",
+            "name": "trafność",
+            "order": "największa",
+            "selected": true
+        },
+        {
+            "value": "+price",
+            "name": "cena",
+            "order": "od najniższej",
+            "selected": false
+        },
+        {
+            "value": "-price",
+            "name": "cena",
+            "order": "od najwyższej",
+            "selected": false
+        },
+        {
+            "value": "+withDeliveryPrice",
+            "name": "cena z dostawą",
+            "order": "od najniższej",
+            "selected": false
+        },
+        {
+            "value": "-withDeliveryPrice",
+            "name": "cena z dostawą",
+            "order": "od najwyższej",
+            "selected": false
+        },
+        {
+            "value": "-popularity",
+            "name": "popularność",
+            "order": "największa",
+            "selected": false
+        },
+        {
+            "value": "+endTime",
+            "name": "czas do końca",
+            "order": "najmniej",
+            "selected": false
+        },
+        {
+            "value": "-startTime",
+            "name": "czas dodania",
+            "order": "najnowsze",
+            "selected": false
+        }
+    ]
+}
