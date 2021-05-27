@@ -1,5 +1,6 @@
 package com.sledz.services.ProductProvider.Allegro;
 
+
 import com.sledz.services.ProductProvider.ExternalProduct;
 import com.sledz.services.ProductProvider.ProductQuery;
 import org.junit.jupiter.api.Test;

@@ -10,6 +10,7 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class AllegroProductProvider implements ExternalProductProvider {
 
     @Override
     public List<ExternalProduct> searchProducts(ProductQuery query) {
-
+      
         var response = makeReq(parseQuery(query), HttpMethod.GET);
         System.out.println(response.toString());
         JsonArray products = response.getAsJsonObject("items").getAsJsonArray("regular");
