@@ -17,7 +17,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.sledz.mobileapp.data.models.defaultListOfProducts
+import com.sledz.mobileapp.ui.theme.MobileAppTheme
 import com.sledz.mobileapp.ui.theme.ProductListItem
 import com.sledz.mobileapp.views.Spacing
 
@@ -29,11 +31,12 @@ fun SearchScreen(){
             .fillMaxSize(),
     ) {
         Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
         ) {
-//            SearchInput()
+            SearchInput()
 
             Spacing(value = 8.dp)
 
@@ -41,7 +44,11 @@ fun SearchScreen(){
 
             Spacing(value = 8.dp)
 
-//            FoundSection()
+            SearchButton()
+
+            Spacing(value = 8.dp)
+
+            FoundSection()
         }
     }
 }
@@ -103,12 +110,14 @@ fun CategoryDropdown() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(30.dp)
-            .background(color = MaterialTheme.colors.primary, shape = RoundedCornerShape(10.dp))
+            .height(40.dp)
+            .background(color = MaterialTheme.colors.primary, shape = RoundedCornerShape(20.dp))
             .clickable(onClick = { expanded = true })
     ) {
         Text(
             items[selectedIndex],
+            style = MaterialTheme.typography.body2,
+            fontSize = 20.sp,
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.CenterStart)
@@ -131,6 +140,13 @@ fun CategoryDropdown() {
     }
 }
 
+@Composable
+fun SearchButton() {
+    Button(onClick = { /*TODO*/ }) {
+        Text("Szukaj produktu")
+    }
+}
+
 @Preview(
     name = "Night Mode",
     uiMode = Configuration.UI_MODE_NIGHT_YES,
@@ -141,5 +157,7 @@ fun CategoryDropdown() {
 )
 @Composable
 private fun MainScreenPreview() {
-    SearchScreen()
+    MobileAppTheme() {
+        SearchScreen()
+    }
 }

@@ -13,7 +13,6 @@ class MainRepository @Inject constructor(
 ) {
     suspend fun loginUser(user: User): Resource<AuthToken> {
         val response = try {
-            Log.println(Log.DEBUG, "******", mainApi.loginUser(user).token)
             mainApi.loginUser(user)
         } catch (e: Exception) {
             return Resource.Error(e.toString())

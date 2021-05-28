@@ -3,7 +3,7 @@ POST http://localhost:8080/user/register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "sample1",
+    "name": "sample2",
     "password": "password1"
 }
 
@@ -14,4 +14,13 @@ content-type: application/json
 {
     "name": "sample2",
     "password": "password1"
+}
+
+### Get token
+POST http://localhost:8080/user/login HTTP/1.1
+content-type: application/json
+
+{
+  "name": "aa",
+  "password": "a"
 }
