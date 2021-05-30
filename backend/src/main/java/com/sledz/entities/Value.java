@@ -13,16 +13,16 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Value {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
 
     @Column()
-    private Long value;
+    public Double value;
 
     @Basic
     @Temporal(TemporalType.DATE)
-    private Calendar date;
+    public Calendar date;
 }

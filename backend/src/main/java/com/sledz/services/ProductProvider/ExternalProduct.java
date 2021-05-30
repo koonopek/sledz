@@ -35,7 +35,7 @@ public interface ExternalProduct {
      * Id kategorii w systemie providera
      * @return id lub null jeżeli nie wspierana
      */
-    default Integer getCategoryId() {
+    default String getCategoryId() {
         return null;
     }
 
