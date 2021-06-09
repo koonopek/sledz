@@ -4,11 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.sledz.mobileapp.data.database.daos.ListTypeConverter
+import com.sledz.mobileapp.data.database.daos.ObservedProductsDao
 import com.sledz.mobileapp.data.database.entities.ObservedProduct
+import com.sledz.mobileapp.data.database.entities.Price
+import com.sledz.mobileapp.data.database.entities.Statistics
 
-@Database(entities = arrayOf(ObservedProduct::class), version = 1)
+@Database(entities = [ObservedProduct::class], version = 1)
+@TypeConverters(ListTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun observedProducts(): ObservedProductsDao
+    abstract fun observedProductDao(): ObservedProductsDao
 
     companion object {
         @Volatile

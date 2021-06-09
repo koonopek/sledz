@@ -1,15 +1,24 @@
 package com.sledz.mobileapp.data.database.entities
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import java.math.BigDecimal
+import androidx.room.*
 
 @Entity
 data class ObservedProduct (
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val imageUrl: String,
+    @PrimaryKey
+    val observedProductId: Long,
+
     val name: String,
+
     val description: String,
-    val price: Float,
+
+    val categoryName: String,
+
+    val valueHistory: List<Price>,
+
+    val weeklyStats: List<Statistics>,
+
+    val monthlyStats: List<Statistics>,
+
+    val globalStats: List<Statistics>,
 )
+
