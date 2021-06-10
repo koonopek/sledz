@@ -12,17 +12,14 @@ interface MainApi {
     suspend fun registerUser(@Body user: User): Boolean
 
     @GET("products/search")
-    suspend fun searchProducts(@Body search: Search): List<Product>
+    suspend fun searchProducts(@Body search: Search): List<ProductRemote>
 
     @POST("products/subscribe/{productId}")
-    suspend fun subscribeProduct(@Path("productId") id:Long, @Body user:User): Product
+    suspend fun subscribeProduct(@Path("productId") id:Long): ProductRemote
 
     @GET("products/subscribed")
-    suspend fun getSubscribed(@Body user:User): List<Product>
-
-    @GET("products/get/{productID}")
-    suspend fun getProductHistory(@Path("productId") id:Long): ProductDetails
+    suspend fun getSubscribed(): List<ProductRemote>
 
     @DELETE("products/unsubscribe/{productId}")
-    suspend fun unsubscribeProduct(@Path("productId") id:Long, @Body user:User): Product
+    suspend fun unsubscribeProduct(@Path("productId") id:Long)
 }
