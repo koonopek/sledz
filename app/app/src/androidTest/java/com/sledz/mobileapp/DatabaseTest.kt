@@ -8,7 +8,6 @@ import com.sledz.mobileapp.data.database.AppDatabase
 import com.sledz.mobileapp.data.database.DatabaseHelper
 import com.sledz.mobileapp.data.database.entities.ObservedProduct
 import com.sledz.mobileapp.data.database.entities.Price
-import com.sledz.mobileapp.data.database.entities.Statistics
 import com.sledz.mobileapp.data.models.HistoryValue
 import com.sledz.mobileapp.data.models.ProductCategory
 import com.sledz.mobileapp.data.models.ProductRemote
@@ -70,7 +69,7 @@ class DatabaseTest {
 
         val observedProducts = databaseHelper.getProducts()
 
-        Assert.assertEquals(listOf(product1,product2,product3),observedProducts)
+         Assert.assertEquals(listOf(product1,product2,product3),observedProducts)
     }
 
     @Test

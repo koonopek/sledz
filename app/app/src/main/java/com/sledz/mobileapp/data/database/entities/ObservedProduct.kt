@@ -1,6 +1,7 @@
 package com.sledz.mobileapp.data.database.entities
 
 import androidx.room.*
+import com.sledz.mobileapp.data.models.Product
 
 @Entity
 data class ObservedProduct (
@@ -19,6 +20,9 @@ data class ObservedProduct (
 
     val monthlyStats: List<Statistics>,
 
-    val globalStats: List<Statistics>,
+    val globalStats: List<Statistics>
+
 )
+
+
 

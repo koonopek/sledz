@@ -18,13 +18,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.sledz.mobileapp.data.models.defaultListOfProducts
 import com.sledz.mobileapp.ui.theme.MobileAppTheme
 import com.sledz.mobileapp.ui.theme.ProductListItem
 import com.sledz.mobileapp.views.Spacing
 
 @Composable
-fun SearchScreen(){
+fun SearchScreen(
+    navController: NavController,
+    searchViewModel: SearchViewModel = hiltViewModel()
+) {
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier
@@ -48,13 +54,13 @@ fun SearchScreen(){
 
             Spacing(value = 8.dp)
 
-            FoundSection()
+            FoundSection(navController)
         }
     }
 }
 
 @Composable
-fun FoundSection() {
+fun FoundSection(navController: NavController) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -65,7 +71,7 @@ fun FoundSection() {
             )
         }
         items(defaultListOfProducts) { prod ->
-            ProductListItem(product = prod)
+            ProductListItem(navController, prod)
         }
     }
 }
@@ -158,6 +164,6 @@ fun SearchButton() {
 @Composable
 private fun MainScreenPreview() {
     MobileAppTheme() {
-        SearchScreen()
+        SearchScreen(rememberNavController())
     }
 }

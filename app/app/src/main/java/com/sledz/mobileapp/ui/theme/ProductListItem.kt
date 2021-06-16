@@ -1,31 +1,36 @@
 package com.sledz.mobileapp.ui.theme
 
 import android.content.res.Configuration
+import android.util.Log
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.sledz.mobileapp.data.models.Product
 import com.sledz.mobileapp.data.models.defaultListOfProducts
 
 @Composable
 fun ProductListItem(
+    navController: NavController,
     product: Product
 ) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         modifier = Modifier
             .fillMaxWidth()
+            .clickable(onClick = { navController.navigate("productDetails/${product.Id}") })
     ) {
         ProductImage(product)
 
@@ -48,7 +53,7 @@ private fun TitleAndDescription(product: Product) {
         )
 
         Text(
-            text = "This is short description",
+            text = "${product.currentPrice} zł",
             style = MaterialTheme.typography.body1,
             modifier = Modifier
                 .paddingFromBaseline(bottom = 24.dp)
@@ -82,7 +87,7 @@ private fun LoginScreenPreview() {
         Surface(
             color = MaterialTheme.colors.background,
         ) {
-            ProductListItem(defaultListOfProducts.first())
+            ProductListItem(rememberNavController(), defaultListOfProducts.first())
         }
     }
 }

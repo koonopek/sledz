@@ -8,20 +8,20 @@ import com.sledz.mobileapp.data.database.entities.Price
 interface ObservedProductsDao {
 
     @Query("SELECT * FROM ObservedProduct WHERE observedProductId = :id")
-    fun getById(id: Long): ObservedProduct
+    suspend fun getById(id: Long): ObservedProduct
 
     @Query("SELECT * FROM ObservedProduct WHERE name = :name")
-    fun getByName(name: String): List<ObservedProduct>
+    suspend fun getByName(name: String): List<ObservedProduct>
 
     @Query("SELECT * FROM ObservedProduct WHERE categoryName = :categoryName")
-    fun getByCategory(categoryName: String): List<ObservedProduct>
+    suspend fun getByCategory(categoryName: String): List<ObservedProduct>
 
     @Query("SELECT * FROM ObservedProduct")
-    fun getAll(): List<ObservedProduct>
+    suspend fun getAll(): List<ObservedProduct>
 
     @Insert
-    fun insert(product: ObservedProduct)
+    suspend fun insert(product: ObservedProduct)
 
     @Delete
-    fun delete(product: ObservedProduct)
+    suspend fun delete(product: ObservedProduct)
 }

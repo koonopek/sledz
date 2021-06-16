@@ -1,7 +1,5 @@
 package com.sledz.mobileapp.data.models
 
-import java.util.*
-
 data class ProductRemote(
     val id: Long,
     val name: String,
@@ -21,3 +19,5 @@ data class ProductCategory(
     val externalId: String,
     val name: String,
 )
+
+
