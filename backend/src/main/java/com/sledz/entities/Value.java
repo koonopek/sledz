@@ -24,5 +24,6 @@ public class Value {
 
     @Basic
     @Temporal(TemporalType.DATE)
-    public Calendar date;
+    private Date date;
+
 }
