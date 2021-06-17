@@ -50,12 +50,12 @@ public class AllegroProduct implements ExternalProduct {
     }
 
     @Override
-    public Integer getCategoryId() {
-        Integer ret = null;
+    public String getCategoryId() {
+        String ret = null;
         try {
             ret = _json.getAsJsonObject(categoryIdKeys[0])
                     .getAsJsonPrimitive(categoryIdKeys[1])
-                    .getAsInt();
+                    .getAsString();
         }catch (Exception e) {
             ret = null;
         }

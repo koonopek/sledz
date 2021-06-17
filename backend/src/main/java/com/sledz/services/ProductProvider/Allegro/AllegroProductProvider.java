@@ -11,10 +11,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import javax.annotation.Nullable;
+import java.util.*;
 
 /**
  * Realizacja interfejsu ExternalProductProvider dla allegro.pl
@@ -23,11 +21,30 @@ public class AllegroProductProvider implements ExternalProductProvider {
 
     static final String _baseUrl = "https://api.allegro.pl";
     static final String _productEndpoint = "/offers/listing";
+    static final String _categoryEndpoint = "/sale/categories";
     private ExternalProductProviderAuthenticator _authenticator;
+    private Map<String,String> categories = new HashMap<>();
 
     AllegroProductProvider(ExternalProductProviderAuthenticator authenticator)
     {
         _authenticator = authenticator;
+        updateCategories();
+    }
+
+    @Nullable
+    @Override
+    public String getCategoryId(String name){
+        return categories.get(name);
+    }
+
+    @Override
+    public Set<String> getCategoryNames(){
+        return categories.keySet();
+    }
+
+    @Override
+    public String getCategoryName(String externalId) {
+        return categories.get(externalId);
     }
 
     @Override
@@ -75,6 +92,32 @@ public class AllegroProductProvider implements ExternalProductProvider {
         {
             return JsonNull.INSTANCE.getAsJsonObject();
         }
+        System.out.println(result.getBody());
         return JsonParser.parseString(result.getBody()).getAsJsonObject();
+    }
+
+    private void updateCategories()
+    {
+        //kategoie są ułożone w drzewo
+
+
+
+        List<String> ids = new LinkedList<>();
+        ids.add("954b95b6-43cf-4104-8354-dea4d9b10ddf"); //base key;
+        do{
+            var obj = makeReq(UriComponentsBuilder.fromHttpUrl(_baseUrl+_categoryEndpoint)
+                    .queryParam("parent.id",ids.remove(0)).toUriString(),HttpMethod.GET);
+            var arr = obj.getAsJsonArray("categories");
+            for(JsonElement el : arr){
+                var id = el.getAsJsonObject().get("id").getAsString();
+                var name = el.getAsJsonObject().get("name").getAsString();
+                var leaf = el.getAsJsonObject().get("leaf").getAsBoolean();
+
+                if(!leaf) ids.add(id);
+                categories.put(name,id);
+            }
+        }while(!ids.isEmpty());
+
+       //todo make this a property file ->  categories.forEach( (a,b) -> System.out.println(a+"="+b) );
     }
 }

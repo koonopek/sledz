@@ -14,14 +14,14 @@ public class Category {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
     @Column(unique = true)
-    private String externalId;
+    public String externalId;
 
     @Column()
-    private String name;
+    public String name;
 
     @OneToMany()
-    private List<Product> products;
+    public List<Product> products;
 }

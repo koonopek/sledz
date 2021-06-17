@@ -15,18 +15,18 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
     
     @Column(unique = true)
-    private String name;
+    public String name;
 
     @Column()
-    private String description;
+    public String description;
 
     @OneToMany()
-    private List<Value> valueHistory;
+    public List<Value> valueHistory;
 
     @ManyToOne()
-    private Category category;
+    public Category category;
 
 }
