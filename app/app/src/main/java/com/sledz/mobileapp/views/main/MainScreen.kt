@@ -1,6 +1,9 @@
 package com.sledz.mobileapp.views.main
 
+import android.app.Activity
+import android.app.Application
 import android.content.res.Configuration
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -11,17 +14,34 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.*
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.sledz.mobileapp.data.database.entities.ObservedProduct
+import com.sledz.mobileapp.data.models.AuthToken
+import com.sledz.mobileapp.data.models.Product
 import com.sledz.mobileapp.data.models.defaultListOfProducts
 import com.sledz.mobileapp.ui.theme.ProductListItem
+import com.sledz.mobileapp.util.Resource
+import com.sledz.mobileapp.util.TypeConverter
 import com.sledz.mobileapp.views.Spacing
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    navController: NavController,
+    mainViewModel: MainViewModel = hiltViewModel()) {
+
+    mainViewModel.loadSubscribed()
+
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier
@@ -45,26 +65,42 @@ fun MainScreen() {
 
             Spacing(value = 8.dp)
 
-            ObservedSection()
+            ObservedSection(navController, mainViewModel)
+
         }
     }
 }
 
 @Composable
-private fun ObservedSection() {
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        item {
-            Text(
-                text = "Obserwowane produkty",
-                style = MaterialTheme.typography.h4
-            )
+private fun ObservedSection(navController: NavController, viewModel: MainViewModel) {
+
+    val itemsObserved by viewModel.subscribedProducts.observeAsState(Resource.Loading<List<ObservedProduct>>())
+    when(itemsObserved) {
+        is Resource.Success<List<ObservedProduct>> -> {
+            val items = itemsObserved.data!!.map { TypeConverter.ObservedToProduct(it) }
+
+            LazyColumn(
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                item {
+                    Text(
+                        text = "Obserwowane produkty",
+                        style = MaterialTheme.typography.h4
+                    )
+                }
+                items(items) { prod ->
+                    ProductListItem(navController, prod)
+                }
+            }
         }
-        items(defaultListOfProducts) { prod ->
-            ProductListItem(product = prod)
+        is Resource.Error<List<ObservedProduct>> -> {
+            Log.i("MainScreen", "how ?? ${itemsObserved.message}")
+        }
+        else -> {
+
         }
     }
+
 }
 
 @Composable
@@ -154,5 +190,5 @@ private fun SearchInput() {
 )
 @Composable
 private fun MainScreenPreview() {
-    MainScreen()
+    MainScreen(rememberNavController())
 }
