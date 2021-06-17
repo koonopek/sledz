@@ -60,6 +60,18 @@ class DatabaseHelper(db : AppDatabase) {
         )
 
         db.observedProductDao().insert(newProduct)
+        Log.i("DBHELPER", "Added product (Remote) id: ${product.id}")
+    }
+
+    suspend fun addProduct(product: ObservedProduct) {
+        db.observedProductDao().insert(product)
+        Log.i("DBHELPER", "Added product (Observed) id: ${product.observedProductId}")
+    }
+
+    suspend fun removeProduct(product: ObservedProduct) {
+        val id = product.observedProductId
+        db.observedProductDao().delete(product)
+        Log.i("DBHELPER", "Removed product id: $id")
     }
 
     suspend fun addDummyData() {

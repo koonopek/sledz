@@ -35,11 +35,8 @@ class MainViewModel @Inject constructor(
 
     fun loadSubscribed() {
         viewModelScope.launch {
-            /* Adds test data */
-            dbHelper.addDummyData()
-
             _subscribedProducts.value = Resource.Success(dbHelper.getProducts())
-            Log.i("MainVM", "products ${subscribedProducts.value!!.data}")
+            Log.i("MainVM", "products ${subscribedProducts.value?.data}")
         }
     }
 

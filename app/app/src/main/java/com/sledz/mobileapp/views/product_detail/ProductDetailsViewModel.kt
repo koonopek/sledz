@@ -27,10 +27,38 @@ class ProductDetailsViewModel @Inject constructor(
     private val _productDetails: MutableLiveData<Resource<ObservedProduct>> = MutableLiveData()
     val productDetails: LiveData<Resource<ObservedProduct>> = _productDetails
 
+    private val _buttonText: MutableLiveData<String> = MutableLiveData()
+    val buttonText: LiveData<String> = _buttonText
+
+    private val _subscribed: MutableLiveData<Boolean> = MutableLiveData()
+    val subscribed: LiveData<Boolean> = _subscribed
+
     fun loadProduct(id: Long) {
         viewModelScope.launch {
             _productDetails.value = Resource.Success(dbHelper.getOneProduct(id))
+            _subscribed.value = true
+            _buttonText.value = "Unśledź"
             Log.i("ProductDetailsVM", "Loaded data id: $id, ${productDetails.value!!.data}")
+        }
+    }
+
+    fun subscribeButtonOnClick() {
+        if(subscribed.value == true) {
+            _subscribed.value = false
+            _buttonText.value = "śledź"
+
+            viewModelScope.launch {
+                productDetails.value?.data?.let { dbHelper.removeProduct(it) }
+            }
+
+        }
+        else {
+            _subscribed.value = true
+            _buttonText.value = "Unśledź"
+
+            viewModelScope.launch {
+                productDetails.value?.data?.let { dbHelper.addProduct(it) }
+            }
         }
     }
 }

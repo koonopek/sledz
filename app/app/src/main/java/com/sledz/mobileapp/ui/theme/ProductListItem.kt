@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.sledz.mobileapp.data.models.Product
 import com.sledz.mobileapp.data.models.defaultListOfProducts
+import okhttp3.internal.format
 
 @Composable
 fun ProductListItem(
@@ -40,6 +41,7 @@ fun ProductListItem(
             Divider()
         }
     }
+    Log.i("ProductListItem", "Created product (List Element) id: ${product.Id}")
 }
 
 @Composable
