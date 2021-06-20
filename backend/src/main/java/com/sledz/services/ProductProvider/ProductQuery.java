@@ -12,4 +12,5 @@ public class ProductQuery {
     public String phrase;
     public Integer productId;
     public Integer querySize;
+    public String categoryStr;
  }

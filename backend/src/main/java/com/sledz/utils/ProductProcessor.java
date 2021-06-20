@@ -34,7 +34,7 @@ public class ProductProcessor {
         //get value
         var val = new Value();
         val.value = Statistic.average(externalProducts);
-        val.date = Calendar.getInstance();
+        val.date = Calendar.getInstance().getTime();
 
 
         Product ret = new Product();
