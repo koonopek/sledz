@@ -7,6 +7,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelLazy
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -24,11 +27,13 @@ import com.sledz.mobileapp.views.WelcomeScreen
 import com.sledz.mobileapp.views.login.LoginScreen
 import com.sledz.mobileapp.views.login.LoginViewModel
 import com.sledz.mobileapp.views.main.MainScreen
+import com.sledz.mobileapp.views.main.MainViewModel
 import com.sledz.mobileapp.views.product_detail.ProductDetailsScreen
 import com.sledz.mobileapp.views.register.RegisterScreen
 import com.sledz.mobileapp.views.search.SearchScreen
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -64,6 +69,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
 
 }
 
