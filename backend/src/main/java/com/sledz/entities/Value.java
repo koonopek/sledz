@@ -25,6 +25,6 @@ public class Value {
 
     @Basic
     @Temporal(TemporalType.DATE)
-    private Date date;
+    public Date date;
 
 }
