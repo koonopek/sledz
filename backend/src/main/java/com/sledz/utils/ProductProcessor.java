@@ -8,7 +8,6 @@ import com.sledz.entities.Value;
 import com.sledz.repositories.ProductRepository;
 import com.sledz.services.ProductProvider.ExternalProduct;
 import com.sledz.services.ProductProvider.ExternalProductProvider;
-import com.sledz.services.ProductProvider.ProductProvider;
 
 public class ProductProcessor {
     public static Product convert(List<ExternalProduct> externalProducts, ProductRepository repo, ExternalProductProvider provider){
@@ -34,7 +33,7 @@ public class ProductProcessor {
         //get value
         var val = new Value();
         val.value = Statistic.average(externalProducts);
-        val.date = Calendar.getInstance().getTime();
+        val.date = Calendar.getInstance().getTime().getTime();
 
 
         Product ret = new Product();

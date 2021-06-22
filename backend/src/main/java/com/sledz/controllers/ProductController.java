@@ -1,32 +1,65 @@
 package com.sledz.controllers;
 
-import com.sledz.dtos.ProductsSearchDto;
-import com.sledz.services.ProductProvider.ProductQuery;
-import com.sledz.services.ProductService;
+import java.util.List;
 
-import com.sledz.services.Searcher.MockSearcher;
+import com.sledz.dtos.ProductDto;
+import com.sledz.dtos.ProductsSearchDto;
+import com.sledz.entities.User;
+import com.sledz.services.ProductService;
+import com.sledz.services.ProductProvider.ProductQuery;
 import com.sledz.services.Searcher.Searcher;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
 public class ProductController {
 
     private final ProductService productService;
-    private final Searcher searcher = new MockSearcher();
+    private final Searcher searcher;
 
     @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService, Searcher searcher) {
         this.productService = productService;
+        this.searcher = searcher;
     }
 
     @GetMapping("product/{productId}")
-    public Object getProduct(@PathVariable(value="productId") Long productId) {
+    public ProductDto getProduct(@PathVariable(value = "productId") Long productId) {
         return this.productService.getProductDetails(productId);
     }
 
-    @PostMapping("products/search")
-    public Object searchProduct(@RequestBody ProductsSearchDto productsSearch) {
-        return this.searcher.searchProduct(ProductQuery.builder().phrase(productsSearch.name).categoryStr(productsSearch.category).build());
+    @GetMapping("prodcuts/subscribed")
+    public List<ProductDto> getSubsribedProducts(){
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        return this.productService.getSubscribedProducts(currentUser.getId());
     }
+
+    @PostMapping("product/subscription/{productId}")
+    public void createSubscription(@PathVariable(value = "productId") Long productId){
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        
+        this.productService.createSubscription(currentUser.getId(), productId);
+    }
+
+    @DeleteMapping("product/subscription/{productId}")
+    public void removeSubscription(@PathVariable(value = "productId") Long productId){
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        
+        this.productService.removeSubscription(currentUser.getId(), productId);
+    }
+
+    @GetMapping("products/search")
+    public Object searchProduct(@RequestBody ProductsSearchDto productsSearch) {
+        return this.searcher.searchProduct(
+                ProductQuery.builder().phrase(productsSearch.name).categoryStr(productsSearch.category).build());
+    }
+
 }

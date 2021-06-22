@@ -67,7 +67,7 @@ public class AllegroProductUpdater implements ProductUpdater {
         var priceMean = Statistic.average(exProdList);
 
         var v = new Value();
-        v.date = Calendar.getInstance().getTime();
+        v.date = Calendar.getInstance().getTimeInMillis();
         v.value = priceMean;
         p.valueHistory.add(v);
 
