@@ -3,11 +3,15 @@ package com.sledz.services;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
+import com.sledz.dtos.ValueDto;
 import com.sledz.entities.Category;
 import com.sledz.entities.Product;
 import com.sledz.entities.User;
 import com.sledz.entities.Value;
+import com.sledz.repositories.CategoryRepository;
 import com.sledz.repositories.ProductRepository;
 import com.sledz.repositories.SubscribtionRepository;
 import com.sledz.repositories.UserRepository;
@@ -24,6 +28,7 @@ public class ProductServiceDatabaseTest {
     @Autowired private ProductRepository productRepository;
     @Autowired private SubscribtionRepository subscribtionRepository;
     @Autowired private ProductServiceDatabase productServiceDatabase;
+    @Autowired private CategoryRepository categoryRepository;
 
     @Test
     void injectedComponentsAreNotNull() {
@@ -36,7 +41,7 @@ public class ProductServiceDatabaseTest {
         var user1Saved = userRepository.save(user1);
 
         var values = List.of(new Value(1.0,0));
-        Product product1 = new Product("produkt1","a", values, new Category());
+        Product product1 = new Product("produkt1","a", values, categoryRepository.save(new Category()));
         var product1Saved = productRepository.save(product1);
 
         var id = this.productServiceDatabase.createSubscription(user1Saved.getId(), product1Saved.getId()).getId();
@@ -50,7 +55,7 @@ public class ProductServiceDatabaseTest {
     @Test
     void testGetProductDetails() {
         var values = List.of(new Value(1.0,0));
-        Product product1 = new Product("produkt2","a", values, new Category());
+        Product product1 = new Product("produkt2","a", values, categoryRepository.save(new Category()));
         var product1Saved = productRepository.save(product1);
 
         var actual = this.productServiceDatabase.getProductDetails(product1.getId());
@@ -65,7 +70,7 @@ public class ProductServiceDatabaseTest {
 
         for(int i=0; i < 10 ; i++) {
             var values = List.of(new Value(1.0,0));
-            var productId = productRepository.save(new Product("produkta" + i,"a"+i, values, new Category())).getId();
+            var productId = productRepository.save(new Product("produkta" + i,"a"+i, values, categoryRepository.save(new Category()))).getId();
             this.productServiceDatabase.createSubscription(user2Saved.getId(),productId);
         }
  
@@ -83,7 +88,7 @@ public class ProductServiceDatabaseTest {
         long productId = 1;
         for(int i=11; i < 20 ; i++) {
             var values = List.of(new Value(1.0,0));
-            productId = productRepository.save(new Product("produktb" + i,"a"+i, values, new Category())).getId();
+            productId = productRepository.save(new Product("produktb" + i,"a"+i, values,categoryRepository.save(new Category()))).getId();
             this.productServiceDatabase.createSubscription(user3Saved.getId(),productId);
         }
  

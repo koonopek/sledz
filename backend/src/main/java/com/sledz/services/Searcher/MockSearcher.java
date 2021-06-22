@@ -1,5 +1,6 @@
 package com.sledz.services.Searcher;
 
+import com.sledz.dtos.ValueDto;
 import com.sledz.entities.Value;
 import com.sledz.dtos.ProductCategoryDto;
 import com.sledz.dtos.ProductDto;
@@ -17,14 +18,14 @@ import java.util.stream.Collectors;
 @Service
 public class MockSearcher implements Searcher {
 
-    static String[] shorts = {"Pro", "Plus", "Eco", "XL", "XXL", "Pro+", "X", "Plus"};
-    static String[] longs = {"Exclusive", "Premium", "Excelsior", "Master", "Supreme"};
-    static long day = 60*60*24;
+    private static String[] shorts = {"Pro", "Plus", "Eco", "XL", "XXL", "Pro+", "X", "Plus"};
+    private static String[] longs = {"Exclusive", "Premium", "Excelsior", "Master", "Supreme"};
+    private static long day = 60*60*24;
     @Override
     public List<ProductDto> searchProduct(ProductQuery query) {
 
         var l = new LinkedList<ProductDto>();
-        List<String> descs = Statistic.perm(Arrays.asList(longs),Statistic.perm(Arrays.asList(new String[]{query.phrase}),Arrays.asList(shorts),5),5);
+        List<String> descs = Statistic.perm(Arrays.asList(longs),Statistic.perm(Arrays.asList(query.phrase),Arrays.asList(shorts),5),5);
         for(int i =0;i<5;i++)
         {
             ProductDto p = new ProductDto();
@@ -44,10 +45,10 @@ public class MockSearcher implements Searcher {
                 int q = 100;
             };
             p.priceHistory = Arrays.stream(Statistic.stochd(100, p.category.id % 1000, p.id % 10)).mapToObj(d -> {
-                Value h = new Value();
+                ValueDto h = new ValueDto();
                 h.date = ((new Date().getTime()/100)- ref.q*day);
                 h.id= (long) 100 - ref.q;
-                h.value = d;
+                h.price = d;
                 ref.q--;
                 return h;
             }).collect(Collectors.toList());

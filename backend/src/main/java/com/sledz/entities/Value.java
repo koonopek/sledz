@@ -1,5 +1,7 @@
 package com.sledz.entities;
 
+import com.sledz.dtos.ValueDto;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
