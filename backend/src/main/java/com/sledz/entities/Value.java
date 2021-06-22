@@ -1,29 +1,31 @@
 package com.sledz.entities;
 
-import java.util.Calendar;
-import java.util.Date;
+import com.sledz.dtos.ValueDto;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Value {
-    
+
+    public Value(double d, long l) {
+        this.value =d;
+        this.date = l;
+    }
+
+    public Value() { }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
 
     @Column()
-    private Long value;
+    public Double value;
 
-    @Basic
-    @Temporal(TemporalType.DATE)
-    private Date date;
+    @Column()
+    public Long date;
 }

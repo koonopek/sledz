@@ -2,31 +2,46 @@ package com.sledz.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import lombok.Getter;
+
 @Entity
+@Getter
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
     
     @Column(unique = true)
-    private String name;
+    public String name;
 
     @Column()
-    private String description;
+    public String description;
 
-    @OneToMany()
-    private List<Value> valueHistory;
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    public List<Value> valueHistory;
 
-    @ManyToOne()
-    private Category category;
+    @ManyToOne(fetch = FetchType.EAGER)
+    public Category category;
+
+    public Product(String name, String description, List<Value> valueHistory, Category category) {
+        this.name = name;
+        this.description = description;
+        this.valueHistory = valueHistory;
+        this.category = category;
+    }
+
+    public Product() {}
+
 
 }

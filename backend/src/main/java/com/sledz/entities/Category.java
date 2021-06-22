@@ -1,27 +1,31 @@
 package com.sledz.entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
     @Column(unique = true)
-    private String externalId;
+    public String externalId;
 
     @Column()
-    private String name;
+    public String name;
 
-    @OneToMany()
-    private List<Product> products;
+    public Category(String exId, String name)
+    {
+        this.externalId = exId;
+        this.name = name;
+    }
+
+    public Category(){}
+
+
 }
