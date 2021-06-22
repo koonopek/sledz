@@ -1,6 +1,7 @@
 package com.sledz.mobileapp.views.search
 
 import android.content.res.Configuration
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -13,6 +14,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,16 +23,24 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.sledz.mobileapp.data.models.defaultListOfProducts
+import com.sledz.mobileapp.data.database.entities.ObservedProduct
+import com.sledz.mobileapp.data.models.ProductRemote
 import com.sledz.mobileapp.ui.theme.MobileAppTheme
 import com.sledz.mobileapp.ui.theme.ProductListItem
+import com.sledz.mobileapp.util.Resource
+import com.sledz.mobileapp.util.TypeConverter
 import com.sledz.mobileapp.views.Spacing
 
 @Composable
 fun SearchScreen(
     navController: NavController,
-    searchViewModel: SearchViewModel = hiltViewModel()
+    phrase: String,
+    category: String,
+    viewModel: SearchViewModel = hiltViewModel()
 ) {
+    viewModel.loadCategories()
+    viewModel.loadSearched(phrase, category)
+
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier
@@ -54,39 +64,50 @@ fun SearchScreen(
 
             Spacing(value = 8.dp)
 
-            FoundSection(navController)
+            FoundSection(navController, phrase, category)
         }
     }
 }
 
 @Composable
-fun FoundSection(navController: NavController) {
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        item {
-            Text(
-                text = "Znalezione produkty",
-                style = MaterialTheme.typography.h4
-            )
+fun FoundSection(navController: NavController, phrase: String, category: String, viewModel: SearchViewModel = hiltViewModel()) {
+    val itemsSearched by viewModel.searchedProducts.observeAsState(Resource.Loading<List<ProductRemote>>())
+
+    when(itemsSearched) {
+        is Resource.Success<List<ProductRemote>> -> {
+            val items = itemsSearched.data!!.map { TypeConverter.RemoteToProduct(it) }
+
+            LazyColumn(
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                item {
+                    Text(
+                        text = "Znalezione produkty",
+                        style = MaterialTheme.typography.h4
+                    )
+                }
+                items(items) { prod ->
+                    ProductListItem(navController, prod)
+                }
+            }
         }
-        items(defaultListOfProducts) { prod ->
-            ProductListItem(navController, prod)
+        is Resource.Error<List<ProductRemote>> -> {
+            Log.i("SearchScreen", "how ?? ${itemsSearched.message}")
+        }
+        else -> {
+
         }
     }
 }
 
-
 @Composable
-private fun SearchInput() {
-    var textState by remember {
-        mutableStateOf("")
-    }
+private fun SearchInput(viewModel: SearchViewModel = hiltViewModel()) {
+    val search by viewModel.search.observeAsState("")
 
     OutlinedTextField(
-        value = textState,
+        value = search,
         onValueChange = {
-            textState = it
+            viewModel.onSearchUpdate(search)
         },
         label = {
             Text(text = "Szukaj produktu")
@@ -106,11 +127,14 @@ private fun SearchInput() {
 }
 
 @Composable
-fun CategoryDropdown() {
+fun CategoryDropdown(viewModel: SearchViewModel = hiltViewModel()) {
     var expanded by remember {
         mutableStateOf(false)
     }
-    val items = listOf("A", "B", "C", "D", "E", "F")
+
+    val categories by viewModel.categories.observeAsState(listOf<String>(""))
+
+
     var selectedIndex by remember { mutableStateOf(0) }
 
     Box(
@@ -121,7 +145,7 @@ fun CategoryDropdown() {
             .clickable(onClick = { expanded = true })
     ) {
         Text(
-            items[selectedIndex],
+            categories[selectedIndex],
             style = MaterialTheme.typography.body2,
             fontSize = 20.sp,
             modifier = Modifier
@@ -134,9 +158,10 @@ fun CategoryDropdown() {
             onDismissRequest = { expanded = false },
             modifier = Modifier.fillMaxWidth()
         ) {
-            items.forEachIndexed { index, element ->
+            categories.forEachIndexed { index, element ->
                 DropdownMenuItem(onClick = {
                     selectedIndex = index
+                    viewModel.onSelectCategory(index)
                     expanded = false
                 }) {
                     Text(text = element)
@@ -147,8 +172,8 @@ fun CategoryDropdown() {
 }
 
 @Composable
-fun SearchButton() {
-    Button(onClick = { /*TODO*/ }) {
+fun SearchButton(viewModel: SearchViewModel = hiltViewModel()) {
+    Button(onClick = { viewModel.loadSearched(viewModel.search.value!!, viewModel.selectedCategory.value!!)}) {
         Text("Szukaj produktu")
     }
 }
@@ -164,6 +189,6 @@ fun SearchButton() {
 @Composable
 private fun MainScreenPreview() {
     MobileAppTheme() {
-        SearchScreen(rememberNavController())
+        SearchScreen(rememberNavController(),"telefon", "aaa")
     }
 }

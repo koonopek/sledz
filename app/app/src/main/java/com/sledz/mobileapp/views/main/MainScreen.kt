@@ -41,6 +41,7 @@ fun MainScreen(
     mainViewModel: MainViewModel = hiltViewModel()) {
 
     mainViewModel.loadSubscribed()
+    mainViewModel.loadCategories()
 
     Surface(
         color = MaterialTheme.colors.background,
@@ -61,7 +62,7 @@ fun MainScreen(
 
             Spacing(value = 8.dp)
 
-            SearchButton()
+            SearchButton(navController)
 
             Spacing(value = 8.dp)
 
@@ -104,12 +105,14 @@ private fun ObservedSection(navController: NavController, viewModel: MainViewMod
 }
 
 @Composable
-fun CategoryDropdown() {
+fun CategoryDropdown(viewModel: MainViewModel = hiltViewModel()) {
     var expanded by remember {
         mutableStateOf(false)
     }
-    val items = listOf("A", "B", "C", "D", "E", "F")
+
+    val categories by viewModel.categories.observeAsState(listOf<String>(""))
     var selectedIndex by remember { mutableStateOf(0) }
+
 
     Box(
         modifier = Modifier
@@ -119,7 +122,7 @@ fun CategoryDropdown() {
             .clickable(onClick = { expanded = true })
     ) {
         Text(
-            items[selectedIndex],
+            categories[selectedIndex],
             style = MaterialTheme.typography.body2,
             fontSize = 20.sp,
             modifier = Modifier
@@ -132,9 +135,10 @@ fun CategoryDropdown() {
             onDismissRequest = { expanded = false },
             modifier = Modifier.fillMaxWidth()
         ) {
-            items.forEachIndexed { index, element ->
+            categories.forEachIndexed { index, element ->
                 DropdownMenuItem(onClick = {
                     selectedIndex = index
+                    viewModel.onSelectCategory(index)
                     expanded = false
                 }) {
                     Text(text = element)
@@ -145,22 +149,20 @@ fun CategoryDropdown() {
 }
 
 @Composable
-fun SearchButton() {
-    Button(onClick = { /*TODO*/ }) {
+fun SearchButton(navController: NavController, viewModel: MainViewModel = hiltViewModel()) {
+    Button(onClick = { navController.navigate("search/${viewModel.search.value}${viewModel.selectedCategory.value}") }) {
         Text("Szukaj produktu")
     }
 }
 
 @Composable
-private fun SearchInput() {
-    var textState by remember {
-        mutableStateOf("")
-    }
+private fun SearchInput(viewModel: MainViewModel = hiltViewModel()) {
+    val search by viewModel.search.observeAsState("")
 
     OutlinedTextField(
-        value = textState,
+        value = search,
         onValueChange = {
-            textState = it
+            viewModel.onSearchUpdate(it)
         },
         label = {
             Text(text = "Szukaj produktu")

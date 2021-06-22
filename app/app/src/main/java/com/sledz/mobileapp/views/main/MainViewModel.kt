@@ -19,6 +19,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,14 +31,40 @@ class MainViewModel @Inject constructor(
     val db = AppDatabase.getInstance(context)
     val dbHelper = DatabaseHelper(db)
 
+    private val _search: MutableLiveData<String> = MutableLiveData("")
+    val search: LiveData<String> = _search
+
     private val _subscribedProducts: MutableLiveData<Resource<List<ObservedProduct>>> = MutableLiveData()
     val subscribedProducts: LiveData<Resource<List<ObservedProduct>>> = _subscribedProducts
+
+    private val _categories: MutableLiveData<List<String>> = MutableLiveData(listOf())
+    val categories: LiveData<List<String>> = _categories
+
+    private val _selectedCategory: MutableLiveData<String> = MutableLiveData("Elektronika")
+    val selectedCategory: LiveData<String> = _selectedCategory
 
     fun loadSubscribed() {
         viewModelScope.launch {
             _subscribedProducts.value = Resource.Success(dbHelper.getProducts())
             Log.i("MainVM", "products ${subscribedProducts.value?.data}")
         }
+    }
+
+    fun onSearchUpdate(searchUpdate: String) {
+        _search.value = searchUpdate
+    }
+
+    fun loadCategories() {
+        _categories.value = listOf("Elektronika", "Dom i rodzina", "Samochody", "Sport")
+    }
+
+    fun onSelectCategory(index: Int) {
+        try {
+            _selectedCategory.value = _categories.value!!.get(index)
+        } catch (e:Exception) {
+            Log.i("MainVM", "onSelectCategory($index) Error!")
+        }
+
     }
 
 }

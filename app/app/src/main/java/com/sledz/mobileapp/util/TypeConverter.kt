@@ -8,6 +8,7 @@ import com.sledz.mobileapp.R
 import com.sledz.mobileapp.data.database.entities.ObservedProduct
 import com.sledz.mobileapp.data.database.entities.Price
 import com.sledz.mobileapp.data.models.Product
+import com.sledz.mobileapp.data.models.ProductRemote
 
 object TypeConverter {
 
@@ -24,5 +25,11 @@ object TypeConverter {
         val chartData = ChartData(listOf("price"), listOf("price"), listOf(Color.RED), items)
         //Log.i("TYPE CONVERTER", "ObservedToCharData() -> $chartData")
         return chartData
+    }
+
+    public fun RemoteToProduct(remote: ProductRemote): Product {
+        val currentPrice = remote.priceHistory.first().value
+        val product = Product(Id = remote.id, title = remote.name, category = remote.category.name, currentPrice = currentPrice)
+        return product
     }
 }

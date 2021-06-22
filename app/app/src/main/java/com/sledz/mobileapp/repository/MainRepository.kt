@@ -20,24 +20,24 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-//    suspend fun registerUser(user: User): Resource<Boolean> {
-//        val response = try {
-//            mainApi.registerUser(user)
-//        } catch (e: Exception) {
-//            return Resource.Error("Register Error")
-//        }
-//        return Resource.Success(response)
-//    }
-//
-//    suspend fun searchProducts(search: Search): List<ProductRemote> {
-//        val response = try {
-//            mainApi.searchProducts(search)
-//        } catch (e: Exception) {
-//            return Resource.Error("Search Error")
-//        }
-//        return Resource.Success(response)
-//    }
-//
+    suspend fun registerUser(user: User): Resource<Boolean> {
+        val response = try {
+            mainApi.registerUser(user)
+        } catch (e: Exception) {
+            return Resource.Error("Register Error")
+        }
+        return Resource.Success(response)
+    }
+
+    suspend fun searchProducts(search: Search): Resource<List<ProductRemote>> {
+        val response = try {
+            mainApi.searchProducts(search)
+        } catch (e: Exception) {
+            return Resource.Error("Search Error")
+        }
+        return Resource.Success(response)
+    }
+
 //    suspend fun subscribeProduct(id: Long, user: User): ProductRemote {
 //        val response = try {
 //            mainApi.subscribeProduct(id, user)
