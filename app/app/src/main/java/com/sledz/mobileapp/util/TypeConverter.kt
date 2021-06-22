@@ -12,7 +12,7 @@ import com.sledz.mobileapp.data.models.Product
 object TypeConverter {
 
    public fun ObservedToProduct(observedProduct: ObservedProduct): Product {
-        val currentPrice = observedProduct.valueHistory.first().value
+        val currentPrice = observedProduct.valueHistory.last().value
         val product = Product(observedProduct.observedProductId, R.drawable.phone, observedProduct.name, observedProduct.categoryName, currentPrice)
         //Log.i("TYPE CONVERTER", "ObservedToProduct() ->$product")
         return product
