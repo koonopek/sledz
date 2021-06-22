@@ -22,12 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     private final ProductService productService;
-    private final Searcher searcher;
 
     @Autowired
-    public ProductController(ProductService productService, Searcher searcher) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
-        this.searcher = searcher;
     }
 
     @GetMapping("product/{productId}")
@@ -58,8 +56,7 @@ public class ProductController {
 
     @GetMapping("products/search")
     public Object searchProduct(@RequestBody ProductsSearchDto productsSearch) {
-        return this.searcher.searchProduct(
-                ProductQuery.builder().phrase(productsSearch.name).categoryStr(productsSearch.category).build());
+        return this.productService.searchProduct(ProductQuery.builder().phrase(productsSearch.name).categoryStr(productsSearch.category).build());
     }
 
 }

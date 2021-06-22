@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Category {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
@@ -18,6 +18,14 @@ public class Category {
 
     @Column()
     public String name;
+
+    public Category(String exId, String name)
+    {
+        this.externalId = exId;
+        this.name = name;
+    }
+
+    public Category(){}
 
 
 }

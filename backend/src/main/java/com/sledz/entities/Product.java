@@ -31,7 +31,7 @@ public class Product {
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     public List<Value> valueHistory;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     public Category category;
 
     public Product(String name, String description, List<Value> valueHistory, Category category) {
