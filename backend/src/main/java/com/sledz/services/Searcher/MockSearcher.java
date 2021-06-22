@@ -1,17 +1,20 @@
 package com.sledz.services.Searcher;
 
-import com.sledz.dtos.HistoryValueDto;
+import com.sledz.entities.Value;
 import com.sledz.dtos.ProductCategoryDto;
 import com.sledz.dtos.ProductDto;
 import com.sledz.entities.Product;
 import com.sledz.services.ProductProvider.ProductQuery;
 import com.sledz.utils.Statistic;
+
+import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.util.ArrayUtils;
 
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Service
 public class MockSearcher implements Searcher {
 
     static String[] shorts = {"Pro", "Plus", "Eco", "XL", "XXL", "Pro+", "X", "Plus"};
@@ -41,10 +44,10 @@ public class MockSearcher implements Searcher {
                 int q = 100;
             };
             p.priceHistory = Arrays.stream(Statistic.stochd(100, p.category.id % 1000, p.id % 10)).mapToObj(d -> {
-                HistoryValueDto h =new HistoryValueDto();
-                h.date = "" + ((new Date().getTime()/100)- ref.q*day);
-                h.id=100-ref.q;
-                h.price = d;
+                Value h = new Value();
+                h.date = ((new Date().getTime()/100)- ref.q*day);
+                h.id= (long) 100 - ref.q;
+                h.value = d;
                 ref.q--;
                 return h;
             }).collect(Collectors.toList());
