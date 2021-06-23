@@ -45,8 +45,8 @@ class MainViewModel @Inject constructor(
 
     fun loadSubscribed() {
         viewModelScope.launch {
-            _subscribedProducts.value = Resource.Success(dbHelper.getProducts())
-            Log.i("MainVM", "products ${subscribedProducts.value?.data}")
+            _subscribedProducts.value = repository.getSubscribed()
+            Log.i("MainVM", "products ${subscribedProducts.value!!.data}")
         }
     }
 

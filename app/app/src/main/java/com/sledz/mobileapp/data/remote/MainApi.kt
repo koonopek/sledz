@@ -10,15 +10,16 @@ interface MainApi {
     @POST("user/register")
     suspend fun registerUser(@Body user: User): Int
 
-    @POST("products/search")
-    suspend fun searchProducts(@Header("Authorization") token: String, @Body search: Search): List<ProductRemote>
+    @GET("products/search")
+    suspend fun searchProducts(@Body search: Search, @Header("Authorization") token: String): List<ProductRemote>
 
     @POST("products/subscribe/{productId}")
-    suspend fun subscribeProduct(@Path("productId") id:Long): ProductRemote
-
-    @GET("products/subscribed")
-    suspend fun getSubscribed(): List<ProductRemote>
+    suspend fun subscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String): ProductRemote
 
     @DELETE("products/unsubscribe/{productId}")
-    suspend fun unsubscribeProduct(@Path("productId") id:Long)
+    suspend fun unsubscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String)
+
+    @GET("products/subscribed")
+    suspend fun getSubscribed(@Header("Authorization") token: String): List<ProductRemote>
+
 }
