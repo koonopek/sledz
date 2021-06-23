@@ -10,7 +10,7 @@ data class ProductRemote(
 
 data class HistoryValue(
     val id: Long,
-    val value: Double,
+    val price: Double,
     val date: Long
 )
 
