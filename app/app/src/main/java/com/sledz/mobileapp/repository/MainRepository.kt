@@ -20,11 +20,11 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-    suspend fun registerUser(user: User): Resource<Boolean> {
+    suspend fun registerUser(user: User): Resource<Int> {
         val response = try {
             mainApi.registerUser(user)
         } catch (e: Exception) {
-            return Resource.Error("Register Error")
+            return Resource.Error(e.toString())
         }
         return Resource.Success(response)
     }

@@ -7,9 +7,8 @@ interface MainApi {
     @POST("user/login")
     suspend fun loginUser(@Body user: User): AuthToken
 
-    @FormUrlEncoded
     @POST("user/register")
-    suspend fun registerUser(@Body user: User): Boolean
+    suspend fun registerUser(@Body user: User): Int
 
     @GET("products/search")
     suspend fun searchProducts(@Body search: Search): List<ProductRemote>
