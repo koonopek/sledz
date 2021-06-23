@@ -28,7 +28,8 @@ object TypeConverter {
     }
 
     public fun RemoteToProduct(remote: ProductRemote): Product {
-        val currentPrice = remote.priceHistory.first().value
+        val currentPrice = remote.priceHistory.last().price
+        Log.i("TypeConverter", "RemoteToProduct($remote)")
         val product = Product(Id = remote.id, title = remote.name, category = remote.category.name, currentPrice = currentPrice)
         return product
     }

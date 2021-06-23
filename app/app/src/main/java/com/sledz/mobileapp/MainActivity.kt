@@ -65,7 +65,7 @@ class MainActivity : ComponentActivity() {
                         arguments = listOf(navArgument("id") { type = NavType.LongType })) {
                         ProductDetailsScreen(navController, it.arguments!!.getLong("id"))
                     }
-                    composable("search/{phrase}{category}", arguments = listOf(navArgument("phrase") { type = NavType.StringType}, navArgument("category") {type = NavType.StringType})) {
+                    composable("search/{phrase} {category}", arguments = listOf(navArgument("phrase") { type = NavType.StringType}, navArgument("category") {type = NavType.StringType})) {
                         SearchScreen(navController, it.arguments!!.getString("phrase")!!, it.arguments!!.getString("category")!!)
                     }
                 }

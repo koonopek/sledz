@@ -33,7 +33,7 @@ class ProductDetailsViewModel @Inject constructor(
     private val _subscribed: MutableLiveData<Boolean> = MutableLiveData()
     val subscribed: LiveData<Boolean> = _subscribed
 
-    fun loadProduct(id: Long) {
+    fun loadProductFromDb(id: Long) {
         viewModelScope.launch {
             _productDetails.value = Resource.Success(dbHelper.getOneProduct(id))
             _subscribed.value = true
@@ -60,5 +60,9 @@ class ProductDetailsViewModel @Inject constructor(
                 productDetails.value?.data?.let { dbHelper.addProduct(it) }
             }
         }
+    }
+
+    fun addProductToLocalDb(id: Long) {
+
     }
 }

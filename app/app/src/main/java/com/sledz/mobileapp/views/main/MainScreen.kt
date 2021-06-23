@@ -150,7 +150,7 @@ fun CategoryDropdown(viewModel: MainViewModel = hiltViewModel()) {
 
 @Composable
 fun SearchButton(navController: NavController, viewModel: MainViewModel = hiltViewModel()) {
-    Button(onClick = { navController.navigate("search/${viewModel.search.value}${viewModel.selectedCategory.value}") }) {
+    Button(onClick = { navController.navigate("search/${viewModel.search.value} ${viewModel.selectedCategory.value}") }) {
         Text("Szukaj produktu")
     }
 }

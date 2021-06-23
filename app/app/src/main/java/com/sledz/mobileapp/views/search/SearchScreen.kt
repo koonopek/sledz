@@ -71,24 +71,24 @@ fun SearchScreen(
 
 @Composable
 fun FoundSection(navController: NavController, phrase: String, category: String, viewModel: SearchViewModel = hiltViewModel()) {
-    val itemsSearched by viewModel.searchedProducts.observeAsState(Resource.Loading<List<ProductRemote>>())
+    val itemsSearched by viewModel.searchedProducts.observeAsState(Resource.Loading())
 
     when(itemsSearched) {
         is Resource.Success<List<ProductRemote>> -> {
             val items = itemsSearched.data!!.map { TypeConverter.RemoteToProduct(it) }
 
-            LazyColumn(
+            Column(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                item {
-                    Text(
-                        text = "Znalezione produkty",
-                        style = MaterialTheme.typography.h4
-                    )
+                Text(
+                    text = "Znalezione produkty",
+                    style = MaterialTheme.typography.h4
+                )
+
+                items.forEach {
+                    ProductListItem(navController = navController, product = it)
                 }
-                items(items) { prod ->
-                    ProductListItem(navController, prod)
-                }
+
             }
         }
         is Resource.Error<List<ProductRemote>> -> {
@@ -107,7 +107,7 @@ private fun SearchInput(viewModel: SearchViewModel = hiltViewModel()) {
     OutlinedTextField(
         value = search,
         onValueChange = {
-            viewModel.onSearchUpdate(search)
+            viewModel.onSearchUpdate(it)
         },
         label = {
             Text(text = "Szukaj produktu")

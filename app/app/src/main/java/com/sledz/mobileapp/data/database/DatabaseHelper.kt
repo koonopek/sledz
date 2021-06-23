@@ -36,7 +36,7 @@ class DatabaseHelper(db : AppDatabase) {
                 name = it.name,
                 description = it.description,
                 categoryName = it.category.name,
-                valueHistory = it.priceHistory.map { Price(it.value,it.date) },
+                valueHistory = it.priceHistory.map { Price(it.price,it.date) },
                 // TO DO: Implement statistic on server side
                 weeklyStats = listOf(),
                 monthlyStats = listOf(),
@@ -53,7 +53,7 @@ class DatabaseHelper(db : AppDatabase) {
             product.name,
             product.description,
             product.category.name,
-            product.priceHistory.map { Price(it.value,it.date) },
+            product.priceHistory.map { Price(it.price,it.date) },
             listOf(),
             listOf(),
             listOf()

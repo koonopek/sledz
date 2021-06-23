@@ -5,6 +5,7 @@ import com.sledz.mobileapp.data.models.*
 import com.sledz.mobileapp.data.remote.MainApi
 import com.sledz.mobileapp.util.Resource
 import dagger.hilt.android.scopes.ActivityScoped
+import retrofit2.http.Query
 import javax.inject.Inject
 
 @ActivityScoped
@@ -29,12 +30,14 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-    suspend fun searchProducts(search: Search): Resource<List<ProductRemote>> {
+    suspend fun searchProducts(token: String, search: Search): Resource<List<ProductRemote>> {
         val response = try {
-            mainApi.searchProducts(search)
+            mainApi.searchProducts(token, search)
+
         } catch (e: Exception) {
-            return Resource.Error("Search Error")
+            return Resource.Error(e.toString())
         }
+        Log.i("MainRepository", "searchProducts() Response: $response")
         return Resource.Success(response)
     }
 
