@@ -12,8 +12,6 @@ import com.sledz.mobileapp.data.models.*
 import com.sledz.mobileapp.data.remote.MainApi
 import com.sledz.mobileapp.util.Constants
 import com.sledz.mobileapp.util.Resource
-import dagger.hilt.android.qualifiers.ActivityContext
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityScoped
 import java.util.*
 import javax.inject.Inject
@@ -21,10 +19,11 @@ import javax.inject.Inject
 @SuppressLint("ServiceCast")
 @ActivityScoped
 class MainRepository @Inject constructor(
+    context: Context,
     private val mainApi: MainApi,
-    private val store: Store,
-    @ApplicationContext private val context: Context
 ) {
+
+    private val store = Store(context)
 
     private val isConnected by lazy {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -44,6 +43,8 @@ class MainRepository @Inject constructor(
         } catch (e: Exception) {
             return Resource.Error("Failed to log in ")
         }
+
+        store.write(Constants.API_TOKEN, response.token)
 
         return Resource.Success(response)
     }
@@ -68,7 +69,11 @@ class MainRepository @Inject constructor(
 //    }
 //
 
-    suspend fun subscribeProduct(productId: Long): Resource<ProductRemote> {
+    suspend fun getProductDetails(productId: Long): Resource<ObservedProduct> {
+        return Resource.Success(db.getOneProduct(productId))
+    }
+
+    suspend fun subscribeProduct(productId: Long): Resource<Long> {
 
         val response = try {
             mainApi.subscribeProduct(productId, apiToken)
@@ -81,19 +86,29 @@ class MainRepository @Inject constructor(
 
     suspend fun getSubscribed(): Resource<List<ObservedProduct>> {
 
-        val lastReadTime = store.read(Constants.LAST_FETCHED_SUBSCRIBED).toLong()
+        try {
+            val lastReadTime = store.read(Constants.LAST_FETCHED_SUBSCRIBED).toLong()
 
-        if (lastReadTime + Constants.DAY_IN_MILI_S >= Date().time || isConnected) {
-            return Resource.Success(db.getProducts())
+            Log.d("MainRepository","Using chached products")
+
+//            if (lastReadTime + Constants.DAY_IN_MILI_S >= Date().time || isConnected) {
+//                return Resource.Success(db.getProducts())
+//            }
+        } catch (e: Exception) {
+            Log.d("MainRepository",e.toString())
         }
 
         val response = try {
             mainApi.getSubscribed(apiToken)
         } catch (e: Exception) {
+            Log.d("MainRepository",e.toString())
+
             return Resource.Error("Search Error")
         }
 
+        Log.d("MainRepository",response.size.toString())
         db.updateProducts(response)
+        store.write(Constants.LAST_FETCHED_SUBSCRIBED, Date().time.toString())
 
         return Resource.Success(db.getProducts())
     }

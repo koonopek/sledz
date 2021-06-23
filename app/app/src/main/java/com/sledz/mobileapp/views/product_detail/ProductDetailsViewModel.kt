@@ -21,9 +21,6 @@ class ProductDetailsViewModel @Inject constructor(
     private val repository: MainRepository,
     @ApplicationContext private val context: Context) : ViewModel() {
 
-    val db = AppDatabase.getInstance(context)
-    val dbHelper = DatabaseHelper(db)
-
     private val _productDetails: MutableLiveData<Resource<ObservedProduct>> = MutableLiveData()
     val productDetails: LiveData<Resource<ObservedProduct>> = _productDetails
 
@@ -35,7 +32,7 @@ class ProductDetailsViewModel @Inject constructor(
 
     fun loadProduct(id: Long) {
         viewModelScope.launch {
-            _productDetails.value = Resource.Success(dbHelper.getOneProduct(id))
+            _productDetails.value = repository.getProductDetails(id)
             _subscribed.value = true
             _buttonText.value = "Unśledź"
             Log.i("ProductDetailsVM", "Loaded data id: $id, ${productDetails.value!!.data}")
@@ -48,7 +45,7 @@ class ProductDetailsViewModel @Inject constructor(
             _buttonText.value = "śledź"
 
             viewModelScope.launch {
-                productDetails.value?.data?.let { dbHelper.removeProduct(it) }
+                productDetails.value?.data?.let { repository.unsubscribeProduct(it.observedProductId) }
             }
 
         }
@@ -57,7 +54,7 @@ class ProductDetailsViewModel @Inject constructor(
             _buttonText.value = "Unśledź"
 
             viewModelScope.launch {
-                productDetails.value?.data?.let { dbHelper.addProduct(it) }
+                productDetails.value?.data?.let { repository.subscribeProduct(it.observedProductId) }
             }
         }
     }

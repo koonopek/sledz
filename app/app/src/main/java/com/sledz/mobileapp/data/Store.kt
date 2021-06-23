@@ -6,8 +6,7 @@ import com.sledz.mobileapp.util.Constants.SHARED_PREFERNCES_KEY
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
-@Singleton
-class Store(@ApplicationContext context: Context) {
+class Store(context: Context) {
 
     private val sharedPreferences: SharedPreferences by lazy {
         context.getSharedPreferences(SHARED_PREFERNCES_KEY, Context.MODE_PRIVATE)
