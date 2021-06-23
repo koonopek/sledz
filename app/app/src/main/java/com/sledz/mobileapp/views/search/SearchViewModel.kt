@@ -41,7 +41,7 @@ class SearchViewModel @Inject constructor(
 
     fun loadSearched(phrase: String, category: String) {
         viewModelScope.launch {
-            _searchedProducts.value = repository.searchProducts("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIn0.gR20S54d0NvxLXeJad-ZLuZikZCfsH9SBeyywHVByawcSuzEAAXUEyG1ZmxDEaoYIO6s_Tbjzx_HYJHrSnRsvw",Search(phrase, category))
+            _searchedProducts.value = repository.searchProducts(Search(phrase, category))
             Log.i("SearchVM", "Found products: ${searchedProducts.value?.data}")
         }
     }

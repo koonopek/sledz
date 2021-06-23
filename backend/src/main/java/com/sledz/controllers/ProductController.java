@@ -52,7 +52,7 @@ public class ProductController {
         this.productService.removeSubscription(currentUser, productId);
     }
 
-    @GetMapping("products/search")
+    @PostMapping("products/search")
     public Object searchProduct(@RequestBody ProductsSearchDto productsSearch) {
         return this.productService.searchProduct(ProductQuery.builder().phrase(productsSearch.name).categoryStr(productsSearch.category).build());
     }

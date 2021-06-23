@@ -11,7 +11,7 @@ interface MainApi {
     suspend fun registerUser(@Body user: User): Int
 
     @POST("products/search")
-    suspend fun searchProducts(@Header("Authorization") token: String, @Body search: Search): List<ProductRemote>
+    suspend fun searchProducts(@Body search: Search, @Header("Authorization") token: String): List<ProductRemote>
 
     @POST("product/subscription/{productId}")
     suspend fun subscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String): Long

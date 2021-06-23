@@ -61,16 +61,16 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
-    //
-//    suspend fun searchProducts(search: Search): List<ProductRemote> {
-//        val response = try {
-//            mainApi.searchProducts(search)
-//        } catch (e: Exception) {
-//            return Resource.Error("Search Error")
-//        }
-//        return Resource.Success(response)
-//    }
-//
+
+    suspend fun searchProducts(search: Search): Resource<List<ProductRemote>> {
+        val response = try {
+            mainApi.searchProducts(search, apiToken)
+        } catch (e: Exception) {
+            return Resource.Error(e.toString())
+        }
+        return Resource.Success(response)
+    }
+
 
     suspend fun getProductDetails(productId: Long): Resource<ObservedProduct> {
         return Resource.Success(db.getOneProduct(productId))

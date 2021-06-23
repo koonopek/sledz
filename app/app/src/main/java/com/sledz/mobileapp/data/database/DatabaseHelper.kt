@@ -57,7 +57,7 @@ class DatabaseHelper(db : AppDatabase) {
             product.name,
             product.description,
             product.category.name,
-            product.priceHistory.map { Price(it.value,it.date) },
+            product.priceHistory.map { Price(it.price,it.date) },
             listOf(),
             listOf(),
             listOf()
