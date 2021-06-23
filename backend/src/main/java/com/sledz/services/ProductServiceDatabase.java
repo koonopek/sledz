@@ -1,5 +1,6 @@
 package com.sledz.services;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -52,14 +53,17 @@ public class ProductServiceDatabase extends MockSearcher implements ProductServi
 
         addCategories(searchResult);
 
-        var added = productRepository.saveAll(searchResult.stream()
+       productRepository.saveAll(searchResult.stream()
                 .filter(s -> !productRepository.existsByName(s.name))
                 .map(s -> new Product(s.name,s.description,
                         s.priceHistory.stream().map(v -> v.toEntity()).collect(Collectors.toList()),
                         categoryRepository.findByExternalId(s.category.externalId)))
                 .collect(Collectors.toList()));
 
-        return StreamSupport.stream(added.spliterator(),false).map(s -> new ProductDto(s)).collect(Collectors.toList());
+       var list = productRepository.findByNameContaining(query.phrase);
+       Collections.shuffle(list);
+
+       return list.stream().limit(5).map(s -> new ProductDto(s)).collect(Collectors.toList());
     }
 
     @Transactional
