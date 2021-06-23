@@ -13,10 +13,10 @@ interface MainApi {
     @GET("products/search")
     suspend fun searchProducts(@Body search: Search, @Header("Authorization") token: String): List<ProductRemote>
 
-    @POST("products/subscribe/{productId}")
+    @POST("product/subscription/{productId}")
     suspend fun subscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String): Long
 
-    @DELETE("products/unsubscribe/{productId}")
+    @DELETE("product/subscription/{productId}")
     suspend fun unsubscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String)
 
     @GET("products/subscribed")

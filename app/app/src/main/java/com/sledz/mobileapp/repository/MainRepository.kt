@@ -44,12 +44,14 @@ class MainRepository @Inject constructor(
             return Resource.Error("Failed to log in ")
         }
 
-        store.write(Constants.API_TOKEN, response.token)
+        Log.d("MainRepository","Bearer " + response.token)
+
+        store.write(Constants.API_TOKEN,"Bearer " + response.token)
 
         return Resource.Success(response)
     }
 
-    suspend fun registerUser(user: User): Resource<Boolean> {
+    suspend fun registerUser(user: User): Resource<Int> {
         val response = try {
             mainApi.registerUser(user)
         } catch (e: Exception) {
@@ -89,9 +91,10 @@ class MainRepository @Inject constructor(
         try {
             val lastReadTime = store.read(Constants.LAST_FETCHED_SUBSCRIBED).toLong()
 
-            Log.d("MainRepository","Using chached products")
 
-//            if (lastReadTime + Constants.DAY_IN_MILI_S >= Date().time || isConnected) {
+            // TODO: replace 0 with Constatnts.
+//            if (lastReadTime + 0 >= Date().time || isConnected) {
+//                Log.d("MainRepository","Using cached products")
 //                return Resource.Success(db.getProducts())
 //            }
         } catch (e: Exception) {
@@ -115,6 +118,7 @@ class MainRepository @Inject constructor(
 
     suspend fun unsubscribeProduct(productId: Long): Resource<Unit> {
         val response = try {
+            db.removeProduct(db.getOneProduct(productId))
             mainApi.unsubscribeProduct(productId, apiToken)
         } catch (e: Exception) {
             return Resource.Error("Search Error")

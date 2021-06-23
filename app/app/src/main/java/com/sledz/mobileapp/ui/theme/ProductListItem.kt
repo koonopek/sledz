@@ -21,6 +21,7 @@ import androidx.navigation.compose.rememberNavController
 import com.sledz.mobileapp.data.models.Product
 import com.sledz.mobileapp.data.models.defaultListOfProducts
 import okhttp3.internal.format
+import kotlin.math.ceil
 
 @Composable
 fun ProductListItem(
@@ -55,7 +56,7 @@ private fun TitleAndDescription(product: Product) {
         )
 
         Text(
-            text = "${product.currentPrice} zł",
+            text = "${ceil(product.currentPrice)} zł",
             style = MaterialTheme.typography.body1,
             modifier = Modifier
                 .paddingFromBaseline(bottom = 24.dp)

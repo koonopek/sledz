@@ -99,13 +99,13 @@ fun TittleBar(viewModel: ProductDetailsViewModel) {
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 modifier = Modifier
                     .padding(8.dp)
-                    .height(40.dp)
+                    .height(60.dp)
                     .fillMaxWidth()) {
 
                 itemDetails.data?.let {
                     Text(
                         text = it.name,
-                        fontSize = 32.sp,
+                        fontSize = 18.sp,
                         fontFamily = FontFamily.Monospace
                     )
                 }
@@ -135,7 +135,11 @@ fun Description(viewModel: ProductDetailsViewModel) {
     val itemDetails by viewModel.productDetails.observeAsState(Resource.Loading<ObservedProduct>())
     when(itemDetails) {
         is Resource.Success<ObservedProduct> -> {
-            Text( text = itemDetails.data!!.description)
+            Column(
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text( text = itemDetails.data!!.description)
+            }
         }
         is Resource.Error<ObservedProduct> -> {
             Log.i("ProductDetailsVM", "how ?? ${itemDetails.message}")
