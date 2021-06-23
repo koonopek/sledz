@@ -11,14 +11,15 @@ interface MainApi {
     suspend fun registerUser(@Body user: User): Int
 
     @GET("products/search")
-    suspend fun searchProducts(@Body search: Search): List<ProductRemote>
+    suspend fun searchProducts(@Body search: Search, @Header("Authorization") token: String): List<ProductRemote>
 
     @POST("products/subscribe/{productId}")
-    suspend fun subscribeProduct(@Path("productId") id:Long): ProductRemote
-
-    @GET("products/subscribed")
-    suspend fun getSubscribed(): List<ProductRemote>
+    suspend fun subscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String): Long
 
     @DELETE("products/unsubscribe/{productId}")
-    suspend fun unsubscribeProduct(@Path("productId") id:Long)
+    suspend fun unsubscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String)
+
+    @GET("products/subscribed")
+    suspend fun getSubscribed(@Header("Authorization") token: String): List<ProductRemote>
+
 }

@@ -17,12 +17,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
+import com.sledz.mobileapp.data.Store
 import com.sledz.mobileapp.data.database.AppDatabase
 import com.sledz.mobileapp.data.database.DatabaseHelper
 import com.sledz.mobileapp.data.models.ProductDetails
 import com.sledz.mobileapp.data.remote.MainApi
 import com.sledz.mobileapp.repository.MainRepository
 import com.sledz.mobileapp.ui.theme.MobileAppTheme
+import com.sledz.mobileapp.util.Constants.API_TOKEN
 import com.sledz.mobileapp.views.WelcomeScreen
 import com.sledz.mobileapp.views.login.LoginScreen
 import com.sledz.mobileapp.views.login.LoginViewModel
@@ -43,12 +45,19 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        var startView = "main"
+
+        try {
+            Store(this).read(API_TOKEN)
+        } catch (e: Exception) {
+            startView = "welcome"
+        }
 
         setContent {
             MobileAppTheme {
                 val navController = rememberNavController()
 
-                NavHost(navController, "welcome") {
+                NavHost(navController, startView) {
                     composable("welcome") {
                         WelcomeScreen(navController)
                     }
