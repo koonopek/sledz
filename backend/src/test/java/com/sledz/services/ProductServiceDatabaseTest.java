@@ -3,10 +3,7 @@ package com.sledz.services;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
-import com.sledz.dtos.ValueDto;
 import com.sledz.entities.Category;
 import com.sledz.entities.Product;
 import com.sledz.entities.User;
@@ -44,7 +41,7 @@ public class ProductServiceDatabaseTest {
         Product product1 = new Product("produkt1","a", values, categoryRepository.save(new Category()));
         var product1Saved = productRepository.save(product1);
 
-        var id = this.productServiceDatabase.createSubscription(user1Saved.getId(), product1Saved.getId()).getId();
+        var id = this.productServiceDatabase.createSubscription("user1", product1Saved.getId()).getId();
 
         var createdSubscription = subscribtionRepository.findById(id).get();
         
@@ -70,11 +67,11 @@ public class ProductServiceDatabaseTest {
 
         for(int i=0; i < 10 ; i++) {
             var values = List.of(new Value(1.0,0));
-            var productId = productRepository.save(new Product("produkta" + i,"a"+i, values, categoryRepository.save(new Category()))).getId();
-            this.productServiceDatabase.createSubscription(user2Saved.getId(),productId);
+            var productId = (Long) productRepository.save(new Product("produkta" + i,"a"+i, values, categoryRepository.save(new Category()))).getId();
+            this.productServiceDatabase.createSubscription(user2.getName(),productId);
         }
  
-        var subscribedProducts = this.productServiceDatabase.getSubscribedProducts(user2.getId());
+        var subscribedProducts = this.productServiceDatabase.getSubscribedProducts("user2");
 
         assertThat(subscribedProducts.size()).isEqualTo(10);
     }
@@ -83,22 +80,22 @@ public class ProductServiceDatabaseTest {
     @Test
     void testRemoveSubscription() {
         User user3 = new User("user3","password3");
-        var user3Saved = userRepository.save(user3);
+        userRepository.save(user3);
 
         long productId = 1;
         for(int i=11; i < 20 ; i++) {
             var values = List.of(new Value(1.0,0));
-            productId = productRepository.save(new Product("produktb" + i,"a"+i, values,categoryRepository.save(new Category()))).getId();
-            this.productServiceDatabase.createSubscription(user3Saved.getId(),productId);
+            productId = productRepository.save(new Product("produktb" + i,"a"+i, values, categoryRepository.save(new Category()))).getId();
+            this.productServiceDatabase.createSubscription(user3.getName(),productId);
         }
- 
-        var subscribedProductsPre = this.productServiceDatabase.getSubscribedProducts(user3.getId());
+
+        var subscribedProductsPre = this.productServiceDatabase.getSubscribedProducts("user3");
 
         assertThat(subscribedProductsPre.size()).isEqualTo(9);
 
-        this.productServiceDatabase.removeSubscription(user3Saved.getId(), productId);
+        this.productServiceDatabase.removeSubscription("user3", productId);
 
-        var subscribedProductsPost = this.productServiceDatabase.getSubscribedProducts(user3.getId());
+        var subscribedProductsPost = this.productServiceDatabase.getSubscribedProducts("user3");
 
         assertThat(subscribedProductsPost.size()).isEqualTo(8);
     }
