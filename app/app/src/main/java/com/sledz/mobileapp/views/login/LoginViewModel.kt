@@ -45,7 +45,7 @@ class LoginViewModel @Inject constructor(
     fun userLogin() {
         viewModelScope.launch {
             /* test data */
-            DatabaseHelper(AppDatabase.getInstance(context)).addDummyData()
+//            DatabaseHelper(AppDatabase.getInstance(context)).addDummyData()
 
             _loginResponse.value = repository.loginUser(
                 User( _name.value.toString(), _password.value.toString())
