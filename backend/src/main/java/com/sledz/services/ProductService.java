@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 public interface ProductService extends Searcher {
     ProductDto getProductDetails(Long productId);
 
-    List<ProductDto> getSubscribedProducts(Long userId);
+    List<ProductDto> getSubscribedProducts(String username);
 
-    Subscription createSubscription(Long userId, Long productId);
+    Subscription createSubscription(String username, Long productId);
 
-    void removeSubscription(Long userId, Long productId);
+    void removeSubscription(String username, Long productId);
 }

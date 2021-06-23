@@ -1,19 +1,18 @@
 package com.sledz.services.Searcher;
 
-import com.sledz.dtos.ValueDto;
-import com.sledz.entities.Value;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.sledz.dtos.ProductCategoryDto;
 import com.sledz.dtos.ProductDto;
-import com.sledz.entities.Product;
+import com.sledz.dtos.ValueDto;
 import com.sledz.services.ProductProvider.ProductQuery;
 import com.sledz.utils.Statistic;
 
 import org.springframework.stereotype.Service;
-import org.yaml.snakeyaml.util.ArrayUtils;
-
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class MockSearcher implements Searcher {
@@ -48,7 +47,7 @@ public class MockSearcher implements Searcher {
                 ValueDto h = new ValueDto();
                 h.date = ((new Date().getTime()/100)- ref.q*day);
                 h.id= (long) 100 - ref.q;
-                h.price = d;
+                h.price = Math.abs(d);
                 ref.q--;
                 return h;
             }).collect(Collectors.toList());
