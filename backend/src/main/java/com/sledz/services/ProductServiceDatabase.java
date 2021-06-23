@@ -18,7 +18,6 @@ import com.sledz.repositories.UserRepository;
 
 import com.sledz.services.ProductProvider.ProductQuery;
 import com.sledz.services.Searcher.MockSearcher;
-import com.sledz.services.Searcher.Searcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,9 +31,10 @@ public class ProductServiceDatabase extends MockSearcher implements ProductServi
     @Autowired CategoryRepository categoryRepository;
 
     @Transactional
-    public List<ProductDto> getSubscribedProducts(Long userId) {
-        var user = this.userRepository.findById(userId);
-        var subscribedProducts = this.subscribtionRepository.findByUser(user.get());
+    public List<ProductDto> getSubscribedProducts(String username) {
+        System.out.println(username);
+        var user = this.userRepository.findByName(username).get(0);
+        var subscribedProducts = this.subscribtionRepository.findByUser(user);
 
         return subscribedProducts.stream().map(s -> {
             return ProductServiceDatabase.producToProdcutDto(s.product);
@@ -63,19 +63,19 @@ public class ProductServiceDatabase extends MockSearcher implements ProductServi
     }
 
     @Transactional
-    public Subscription createSubscription(Long userId, Long productId) {
-        var user = this.userRepository.findById(userId);
+    public Subscription createSubscription(String username, Long productId) {
+        var user = this.userRepository.findByName(username).get(0);
         var product = this.productRepository.findById(productId);
-        var subscription = new Subscription(user.get(), product.get());
+        var subscription = new Subscription(user, product.get());
         return this.subscribtionRepository.save(subscription);
     }
 
     @Transactional
-    public void removeSubscription(Long userId, Long productId) {
+    public void removeSubscription(String username, Long productId) {
         var product = this.productRepository.findById(productId);
-        var user = this.userRepository.findById(userId);
+        var user = this.userRepository.findByName(username).get(0);
 
-        this.subscribtionRepository.deleteByProductAndUser(product.get(), user.get());
+        this.subscribtionRepository.deleteByProductAndUser(product.get(), user);
     }
 
     public static ProductDto producToProdcutDto(Product product) {

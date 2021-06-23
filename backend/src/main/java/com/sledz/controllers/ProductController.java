@@ -4,10 +4,8 @@ import java.util.List;
 
 import com.sledz.dtos.ProductDto;
 import com.sledz.dtos.ProductsSearchDto;
-import com.sledz.entities.User;
 import com.sledz.services.ProductService;
 import com.sledz.services.ProductProvider.ProductQuery;
-import com.sledz.services.Searcher.Searcher;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -35,23 +33,23 @@ public class ProductController {
 
     @GetMapping("prodcuts/subscribed")
     public List<ProductDto> getSubsribedProducts(){
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        var currentUser = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        return this.productService.getSubscribedProducts(currentUser.getId());
+        return this.productService.getSubscribedProducts(currentUser);
     }
 
     @PostMapping("product/subscription/{productId}")
     public void createSubscription(@PathVariable(value = "productId") Long productId){
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        var currentUser = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         
-        this.productService.createSubscription(currentUser.getId(), productId);
+        this.productService.createSubscription(currentUser, productId);
     }
 
     @DeleteMapping("product/subscription/{productId}")
     public void removeSubscription(@PathVariable(value = "productId") Long productId){
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        var currentUser = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         
-        this.productService.removeSubscription(currentUser.getId(), productId);
+        this.productService.removeSubscription(currentUser, productId);
     }
 
     @GetMapping("products/search")

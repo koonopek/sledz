@@ -1,0 +1,25 @@
+### Search products
+GET http://localhost:8080/products/search HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wbGUzIn0.nADLwXn9rIiILzZD17dNlU5xivJlwTFHMYh3XIMFUahhHXRfUpjHtgnLbmVhMixl3D9L8veGjQEoD5ByqVq3RA
+
+{
+    "name": "one plus5t",
+    "category": "telefon"
+}
+
+### Subscribe to product
+POST http://localhost:8080/product/subscription/1014 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wbGUzIn0.nADLwXn9rIiILzZD17dNlU5xivJlwTFHMYh3XIMFUahhHXRfUpjHtgnLbmVhMixl3D9L8veGjQEoD5ByqVq3RA
+
+### Get subscribed products
+### Get token from user/login
+GET http://localhost:8080/prodcuts/subscribed HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wbGUzIn0.nADLwXn9rIiILzZD17dNlU5xivJlwTFHMYh3XIMFUahhHXRfUpjHtgnLbmVhMixl3D9L8veGjQEoD5ByqVq3RA
+
+### UnSubscribe to product
+DELETE http://localhost:8080/product/subscription/3 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW1wbGUzIn0.nADLwXn9rIiILzZD17dNlU5xivJlwTFHMYh3XIMFUahhHXRfUpjHtgnLbmVhMixl3D9L8veGjQEoD5ByqVq3RA
