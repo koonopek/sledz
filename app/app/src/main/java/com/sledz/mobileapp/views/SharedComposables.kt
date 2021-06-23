@@ -59,15 +59,33 @@ fun SledzSecondaryButton(
 }
 
 @Composable
-fun SledzEmailInput() {
-    var textState by remember {
-        mutableStateOf("")
+fun SledzSecondaryButton(
+    buttonText: String,
+    onClick: () -> Unit
+) {
+    Button(
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = MaterialTheme.colors.secondary
+        ),
+        shape = MaterialTheme.shapes.medium,
+        onClick = {
+            onClick()
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(48.dp)
+            .padding(horizontal = 16.dp)
+    ) {
+        Text(text = buttonText)
     }
+}
 
+@Composable
+fun SledzEmailInput(value: String, onTextChange: (String) -> Unit) {
     OutlinedTextField(
-        value = textState,
+        value = value,
         onValueChange = {
-            textState = it
+            onTextChange(it)
         },
         label = {
             Text(text = "Email address")
@@ -82,15 +100,11 @@ fun SledzEmailInput() {
 }
 
 @Composable
-fun SledzPasswordInput() {
-    var textState by remember {
-        mutableStateOf("")
-    }
-
+fun SledzPasswordInput(value: String, onTextChange: (String) -> Unit) {
     OutlinedTextField(
-        value = textState,
+        value = value,
         onValueChange = {
-            textState = it
+            onTextChange(it)
         },
         label = {
             Text(text = "Password")
