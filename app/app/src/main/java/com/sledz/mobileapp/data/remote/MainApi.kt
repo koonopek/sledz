@@ -14,7 +14,7 @@ interface MainApi {
     suspend fun searchProducts(@Body search: Search, @Header("Authorization") token: String): List<ProductRemote>
 
     @POST("products/subscribe/{productId}")
-    suspend fun subscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String): ProductRemote
+    suspend fun subscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String): Long
 
     @DELETE("products/unsubscribe/{productId}")
     suspend fun unsubscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String)
