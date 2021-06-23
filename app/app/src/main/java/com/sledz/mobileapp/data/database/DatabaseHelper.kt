@@ -24,12 +24,16 @@ class DatabaseHelper(db : AppDatabase) {
     }
 
     suspend fun getOneProduct(productId: Long): ObservedProduct {
-        return db.observedProductDao().getById(productId)
+        return db.observedProductDao().getById(productId)!!
     }
 
     suspend fun updateProducts(products: List<ProductRemote>) {
         products.forEach {
-            db.observedProductDao().delete(db.observedProductDao().getById(it.id))
+
+            val product = db.observedProductDao().getById(it.id)
+            if(product != null ){
+                db.observedProductDao().delete(product)
+            }
 
             val newProduct = ObservedProduct(
                 it.id,
@@ -53,7 +57,7 @@ class DatabaseHelper(db : AppDatabase) {
             product.name,
             product.description,
             product.category.name,
-            product.priceHistory.map { Price(it.price,it.date) },
+            product.priceHistory.map { Price(it.value,it.date) },
             listOf(),
             listOf(),
             listOf()

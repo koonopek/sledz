@@ -13,12 +13,13 @@ interface MainApi {
     @POST("products/search")
     suspend fun searchProducts(@Header("Authorization") token: String, @Body search: Search): List<ProductRemote>
 
-    @POST("products/subscribe/{productId}")
-    suspend fun subscribeProduct(@Path("productId") id:Long): ProductRemote
+    @POST("product/subscription/{productId}")
+    suspend fun subscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String): Long
+
+    @DELETE("product/subscription/{productId}")
+    suspend fun unsubscribeProduct(@Path("productId") id:Long, @Header("Authorization") token: String)
 
     @GET("products/subscribed")
-    suspend fun getSubscribed(): List<ProductRemote>
+    suspend fun getSubscribed(@Header("Authorization") token: String): List<ProductRemote>
 
-    @DELETE("products/unsubscribe/{productId}")
-    suspend fun unsubscribeProduct(@Path("productId") id:Long)
 }
