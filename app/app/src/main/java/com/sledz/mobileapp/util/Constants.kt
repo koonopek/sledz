@@ -1,7 +1,7 @@
 package com.sledz.mobileapp.util
 
 object Constants {
-    const val BASE_URL = "http://192.168.1.24:8080/"
+    const val BASE_URL = "http://10.0.2.2:8080/"
     const val SHARED_PREFERNCES_KEY = "SLEDZ"
     const val API_TOKEN = "API_TOKEN"
     const val LAST_FETCHED_SUBSCRIBED = "LAST_FETCHED_SUBSCRIBED"
