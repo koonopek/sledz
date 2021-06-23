@@ -27,16 +27,13 @@ class MainViewModel @Inject constructor(
     @ApplicationContext private val context: Context
 ) : ViewModel() {
 
-    val db = AppDatabase.getInstance(context)
-    val dbHelper = DatabaseHelper(db)
-
     private val _subscribedProducts: MutableLiveData<Resource<List<ObservedProduct>>> = MutableLiveData()
     val subscribedProducts: LiveData<Resource<List<ObservedProduct>>> = _subscribedProducts
 
     fun loadSubscribed() {
         viewModelScope.launch {
-            _subscribedProducts.value = Resource.Success(dbHelper.getProducts())
-            Log.i("MainVM", "products ${subscribedProducts.value?.data}")
+            _subscribedProducts.value = repository.getSubscribed()
+            Log.i("MainVM", "products ${subscribedProducts.value!!.data}")
         }
     }
 

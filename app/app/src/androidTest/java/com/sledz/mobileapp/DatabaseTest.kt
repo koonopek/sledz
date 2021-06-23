@@ -41,7 +41,8 @@ class DatabaseTest {
 
     @Test
     @Throws(Exception::class)
-    fun insertAndQuerySingleObservedProduct() {
+    suspend fun insertAndQuerySingleObservedProduct() {
+
         val product = ObservedProduct(1,"product1","description1","cat1",
         listOf(Price(10.0, Date().time)), listOf(),listOf(),listOf())
 
@@ -55,7 +56,7 @@ class DatabaseTest {
 
     @Test
     @Throws(Exception::class)
-    fun insertAndQueryObservedProducts() {
+    suspend fun insertAndQueryObservedProducts() {
         val product1 = ObservedProduct(0,"product0","description0","cat2",
             listOf(Price(11.0, Date().time)), listOf(),listOf(),listOf())
         val product2 = ObservedProduct(1,"product1","description1","cat1",
@@ -74,7 +75,7 @@ class DatabaseTest {
 
     @Test
     @Throws(Exception::class)
-    fun updateProducts() {
+    suspend fun updateProducts() {
         // current database state
 
         val product1 = ObservedProduct(0,"product0","description0","cat2",

@@ -1,6 +1,7 @@
 package com.sledz.mobileapp.di
 
 import com.sledz.mobileapp.BuildConfig
+import com.sledz.mobileapp.data.Store
 import com.sledz.mobileapp.data.remote.MainApi
 import com.sledz.mobileapp.repository.MainRepository
 import com.sledz.mobileapp.util.Constants.BASE_URL
@@ -8,6 +9,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Headers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -35,7 +37,13 @@ object AppModule {
                         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
                         client.addInterceptor(logging)
                     }
-                }.build()
+                }
+                    .addInterceptor({
+                        val request = it.request()
+                        val requestWithAuth = request.newBuilder()
+                            .addHeader("Authorization", "Bearer " + Store(activity).read(Api))
+                    })
+                    .build()
             )
             .addConverterFactory(GsonConverterFactory.create())
             .build()
