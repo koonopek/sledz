@@ -16,6 +16,8 @@ import androidx.compose.ui.viewinterop.AndroidViewBinding
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.sledz.mobileapp.data.database.entities.ObservedProduct
+import com.sledz.mobileapp.data.database.entities.Price
+import com.sledz.mobileapp.data.database.entities.Statistics
 import com.sledz.mobileapp.databinding.TchartLayoutBinding
 import com.sledz.mobileapp.util.Resource
 import com.sledz.mobileapp.util.TypeConverter
@@ -27,7 +29,7 @@ fun ProductDetailsScreen(
     productDetailsViewModel: ProductDetailsViewModel = hiltViewModel()
 ) {
 
-    productDetailsViewModel.loadProductFromDb(id)
+    productDetailsViewModel.loadProduct(id)
 
     Surface(
         color = MaterialTheme.colors.background,
@@ -57,9 +59,10 @@ fun ProductDetailsScreen(
 @Composable
 fun Plot(viewModel: ProductDetailsViewModel) {
 
-    val itemDetails by viewModel.productDetails.observeAsState(Resource.Loading<ObservedProduct>())
+    val itemDetails by viewModel.productDetails.observeAsState(Resource.Loading())
     when(itemDetails) {
         is Resource.Success<ObservedProduct> -> {
+            Log.i("aAAAAAaaaa","${itemDetails.data}")
             AndroidViewBinding(TchartLayoutBinding::inflate) {
                 tchart.setData(TypeConverter.ObservedToChartData(itemDetails.data!!))
                 tchart.setTitle("${itemDetails.data!!.name}")

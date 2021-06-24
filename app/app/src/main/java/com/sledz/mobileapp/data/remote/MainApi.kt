@@ -22,4 +22,6 @@ interface MainApi {
     @GET("products/subscribed")
     suspend fun getSubscribed(@Header("Authorization") token: String): List<ProductRemote>
 
+    @GET("products/{id}")
+    suspend fun getProduct(@Path("id") id: Long, @Header("Authorization") token: String): SingleProductRemote
 }

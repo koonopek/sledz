@@ -9,11 +9,16 @@ import androidx.lifecycle.viewModelScope
 import com.sledz.mobileapp.data.database.AppDatabase
 import com.sledz.mobileapp.data.database.DatabaseHelper
 import com.sledz.mobileapp.data.database.entities.ObservedProduct
+import com.sledz.mobileapp.data.models.HistoryValue
+import com.sledz.mobileapp.data.models.ProductCategory
+import com.sledz.mobileapp.data.models.ProductRemote
 import com.sledz.mobileapp.repository.MainRepository
 import com.sledz.mobileapp.util.Resource
+import com.sledz.mobileapp.util.TypeConverter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,7 +35,15 @@ class ProductDetailsViewModel @Inject constructor(
     private val _subscribed: MutableLiveData<Boolean> = MutableLiveData()
     val subscribed: LiveData<Boolean> = _subscribed
 
+    fun loadProduct(id: Long) {
+
+        viewModelScope.launch {
+           _productDetails.value = Resource.Success(TypeConverter.RemoteToObserved(repository.getProduct(id).data!!))
+        }
+    }
+
     fun loadProductFromDb(id: Long) {
+        Log.i("ProductDetailsVM", "$id")
         viewModelScope.launch {
             _productDetails.value = repository.getProductDetails(id)
             _subscribed.value = true

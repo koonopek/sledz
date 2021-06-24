@@ -7,6 +7,7 @@ import com.klim.tcharts.entities.ChartItem
 import com.sledz.mobileapp.R
 import com.sledz.mobileapp.data.database.entities.ObservedProduct
 import com.sledz.mobileapp.data.database.entities.Price
+import com.sledz.mobileapp.data.database.entities.Statistics
 import com.sledz.mobileapp.data.models.Product
 import com.sledz.mobileapp.data.models.ProductRemote
 
@@ -33,4 +34,16 @@ object TypeConverter {
         val product = Product(Id = remote.id, title = remote.name, category = remote.category.name, currentPrice = currentPrice)
         return product
     }
+
+    public fun RemoteToObserved(remote: ProductRemote): ObservedProduct {
+        val priceHist = remote.priceHistory.map { Price(value = it.price,date = it.date) }
+        return ObservedProduct(weeklyStats = listOf(Statistics(0.0,0.0,0.0)),
+            valueHistory = priceHist,
+            observedProductId = remote.id,
+            name = remote.name, monthlyStats = listOf(Statistics(0.0,0.0,0.0)),
+            globalStats = listOf(Statistics(0.0,0.0,0.0)),
+            description = remote.description,
+            categoryName = "kategoria")
+    }
+
 }

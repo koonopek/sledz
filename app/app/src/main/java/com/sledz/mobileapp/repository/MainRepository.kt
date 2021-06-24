@@ -128,4 +128,13 @@ class MainRepository @Inject constructor(
         return Resource.Success(response)
     }
 
+    suspend fun getProduct(id: Long): Resource<SingleProductRemote> {
+        val response = try {
+            mainApi.getProduct(id, apiToken)
+        } catch (e: Exception) {
+            return Resource.Error(e.toString())
+        }
+        return Resource.Success(response)
+    }
+
 }
